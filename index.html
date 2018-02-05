@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Vocal Local</title>
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+  <div class="jumbotron">
+
+  <h1 id="header">Vocal Local</h1> 
+  <!-- Artist Select Box -->
+  <form id="artist-form">
+    <!-- Label for Text Box -->
+  <div class="container">
+    <label for="date-input">Choose Your Date</label>
+    <!-- Text Input Box -->
+    <input type="text" id="date-input"><br>
+  </div>
+  <div class="container">
+    <label for="area-input">Choose Your Area</label>
+    <!-- Text Input Box -->
+    <input type="text" id="genre-input"><br>
+  </div>
+  <div class="container">
+    <label for="number-input">Choose the number of results you would like</label>
+    <!-- Text Input Box -->
+    <input type="text" id="number-input"><br>
+  </div>
+    <!-- Submit Button -->
+    <input id="select-artist" type="submit" value="Search for your artist!">
+  </form>
+  <!-- Artist Information -->
+  <div id="artist-div"></div>
+  </div>
+  </div>
+</body>
+<script type="text/javascript" src="assets/javascript/app.js"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</html>

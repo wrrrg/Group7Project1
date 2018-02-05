@@ -1,0 +1,42 @@
+body{
+
+    background: url(http://static.tumblr.com/7b37633d29d9aaca9828b5132273cdf1/sy59fz4/1linmyvvt/tumblr_static_4y2skv97m24ogs84wc40sccso.jpg);
+    font-family: Impact, Charcoal, sans-serif;
+}
+h1{
+    height: 50px;
+}
+.container{
+    float:left;
+    position:relative;
+    font-size:1em;
+    display: inline-flex;
+    width: 1000px;
+    padding: 2px;
+}
+#artist-form {   
+    font-size: 1.5em;
+    position: relative;
+    top: 25px;
+    left: 400px;
+}
+#header{
+    position: relative;
+    top: 25px;
+    left: 600px;
+}
+#select-artist{
+    font-family: Impact, Charcoal, sans-serif;
+}
+label{
+    display: block;
+     margin: 0 0 3px; 
+     font-size: 1.2em; 
+     font-weight: bold; 
+}
+input{
+    font-size: 1em;
+}
+#date-input{
+    float:left;
+}
