@@ -25,7 +25,7 @@ var songkick = {
 
         var long = response["resultsPage"]["results"]["location"][0]["metroArea"]["lng"];
 
-        var gps = lat + "," + long;
+        gps = lat + "," + long;
         // console.log(lat);
         // console.log(long);
         // console.log(gps.toString());
