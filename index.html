@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="en">
 
 <head>
@@ -6,13 +7,14 @@
   <title>Vocal Local</title>
   <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 </head>
 
 <body class = "background-image">
 
   <div class="container">
   <div class="jumbotron">
-  <h1>Vocal Local</h1> 
+  <h1>Vocal Local</h1>
 
   <!-- Artist Select Box -->
   <form id="artist-form">
@@ -57,7 +59,7 @@
       var upcomingEvents = $("<h2>").text(response.upcoming_event_count + " upcoming events");
       var goToArtist = $("<a>").attr("href", response.url).text("See Tour Dates");
       var region = $("<h3>").text(response.region + "Region");
-      
+
       // Empty the contents of the artist-div, append the new artist content
       $("#artist-div").empty();
       $("#artist-div").append(artistURL, artistImage, trackerCount, upcomingEvents, goToArtist);
@@ -75,5 +77,9 @@
     searchBandsInTown(inputArtist);
   });
 </script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+crossorigin="anonymous"></script>
+<script type="text/javascript" src="assets/javascript/app.js"></script>
 
 </html>
