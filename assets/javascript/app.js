@@ -53,7 +53,7 @@ var eventResults = [];
 var distanceResults = [];
 
 
-// google maps object
+// google maps object for function storage
 
 var googleMaps = {
   findDistance: function(origin, location1, location2, location3, location4, location5, location6, locaiton7, location8, location9, location10){
