@@ -12,8 +12,8 @@ body {
 nav {
     opacity: .5;
     border-bottom: -2px solid black;
-    font-family: 'Playfair Display', serif;
-    font-family: 'Arimo', sans-serif;
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     padding-top: 60px;
 }
 @media (max-width: 979px) {
@@ -21,8 +21,9 @@ nav {
     padding-top: 0px;
   }
 }
-.btn btn-primary btn-lg {
-        width:400px;
+.btn btn-primary btn-lg{
+     min-width: 80px;
+    max-width: 80px;
 }
 input[type="text"] {
     width: 200px;
