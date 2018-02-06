@@ -48,25 +48,59 @@ var apiKeyGoogleMatrix = 'AIzaSyC4VTDL8HDsd-eNs_89_lBzicvSKZAaWa0';
 //  - Songkick -
 var cityGPS = '';
 var eventResults = [];
+var destinationArr = [];
 
 //  - Google Maps -
 var distanceResults = [];
 
 
-// google maps object
+// google maps object for function storage
 
 var googleMaps = {
-  findDistance: function(origin, location1, location2, location3, location4, location5, location6, locaiton7, location8, location9, location10){
-      // make an array of locations from our function arguments, remove the first entry because it is the origin
-      var destinations = Array.from(arguments);
-      destinations.shift();
-      console.log(destinations);
+
+  // Update the global array of destiations with lng/lat/name objects using an array of events
+  createDestinationArr: function(eventArr){
+    destinationArr = [];
+
+    for (var i = 0; i < eventResults.length; i++) {
+      var destinationObj = {};
+      destinationObj.lat = eventResults[i]["lat"];
+      destinationObj.lng = eventResults[i]["lng"];
+      destinationObj.name = eventResults[i]["venue"]["displayName"];
+
+      destinationArr.push(destinationObj);
+    };
+
+    console.log(destinationArr);
+  },
+  // Queries Google Maps for distances between origin and all destinations in the given destination Array
+  findDistance: function(origin, destinationArr){
+
+      destinations = "";
+
+      for (var i = 0; i < destinationArr.length; i++) {
+        str = "";
+
+        str += destinationArr[i]["lat"]
+        str += "%2C"
+        str += destinationArr[i]["lng"]
+        str += "%7C"
+
+        destinations += str;
+      };
+      // removes the last | for formatting the query correctly
+      destinations = destinations.slice(0, -3);
+
 
 
       var origins = origin;
 
+      console.log(destinations);
+
 
       var queryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=" + origins + "&destinations=" + destinations + "6&key=" + apiKeyGoogleMatrix;
+
+      console.log(queryURL);
 
       $.ajax({
         url: queryURL,
@@ -74,9 +108,27 @@ var googleMaps = {
       }).then(function(response) {
           console.log(response);
           console.log(response["rows"]);
-          console.log(response["rows"][0]["elements"][0]["distance"]);
-          console.log(response["rows"][0]["elements"][0]["duration"]);
+          console.log(response["rows"][0]["elements"]);
+          // console.log(response["rows"][0]["elements"][0]["distance"]);
+          // console.log(response["rows"][0]["elements"][0]["duration"]);
+
+          var distanceArr = response["rows"][0]["elements"];
           distanceResults = [];
+        // add the calculated distances and durations to our distance results
+          for (var i = 0; i < distanceArr.length; i++) {
+            var distanceObj = {};
+            distanceObj.distance = distanceArr[i]["distance"];
+            distanceObj.duration = distanceArr[i]["duration"];
+            distanceResults.push(distanceObj);
+          };
+      // add the distance and duration properties to our destiationArr and eventResults array items
+
+          for (var i = 0; i < distanceResults.length; i++) {
+            destinationArr[i]["distance"] = distanceResults[i]["distance"];
+            eventResults[i]["distance"] = distanceResults[i]["distance"];
+            destinationArr[i]["duration"] = distanceResults[i]["duration"];
+            eventResults[i]["duration"] = distanceResults[i]["duration"];
+          };
 
 
 
@@ -153,6 +205,7 @@ var songkick = {
           eventObj.date = eventArr[i]["start"]["date"];
           eventObj.uri = eventArr[i]["uri"];
           eventObj.performers = eventArr[i]["performance"];
+          eventObj.venue = eventArr[i]["venue"];
 
 
           eventResults.push(eventObj)
