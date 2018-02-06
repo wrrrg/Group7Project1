@@ -41,7 +41,51 @@ var apiKeyGoogleGeoLocate = "AIzaSyCMYSEdplA8YCDESSjE-KxOji84lQjKNTU";
 // google maps directions api AIzaSyCnd-IWrCKGW-QzK2iM3opYUL7Z_0gaR3A
 var apiKeyGoogleDirections = "AIzaSyCnd-IWrCKGW-QzK2iM3opYUL7Z_0gaR3A";
 
+// google maps distance matrix api AIzaSyC4VTDL8HDsd-eNs_89_lBzicvSKZAaWa0
+var apiKeyGoogleMatrix = 'AIzaSyC4VTDL8HDsd-eNs_89_lBzicvSKZAaWa0';
+
+// Global initialized Variables
+//  - Songkick -
 var cityGPS = '';
+var eventResults = [];
+
+//  - Google Maps -
+var distanceResults = [];
+
+
+// google maps object
+
+var googleMaps = {
+  findDistance: function(origin, location1, location2, location3, location4, location5, location6, locaiton7, location8, location9, location10){
+      // make an array of locations from our function arguments, remove the first entry because it is the origin
+      var destinations = Array.from(arguments);
+      destinations.shift();
+      console.log(destinations);
+
+
+      var origins = origin;
+
+
+      var queryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=" + origins + "&destinations=" + destinations + "6&key=" + apiKeyGoogleMatrix;
+
+      $.ajax({
+        url: queryURL,
+        method: 'GET'
+      }).then(function(response) {
+          console.log(response);
+          console.log(response["rows"]);
+          console.log(response["rows"][0]["elements"][0]["distance"]);
+          console.log(response["rows"][0]["elements"][0]["duration"]);
+          distanceResults = [];
+
+
+
+        });
+
+    },
+
+
+};
 
 
 
@@ -94,7 +138,29 @@ var songkick = {
         method: 'GET'
       }).then(function(response) {
         console.log(response);
-        console.log(response["resultsPage"]["results"]);
+        console.log(response["resultsPage"]["results"]["event"]);
+
+        var eventArr = response["resultsPage"]["results"]["event"];
+
+        eventResults = [];
+
+        for (var i = 0; i < eventArr.length; i++) {
+          var eventObj = {};
+          eventObj.name = eventArr[i]["displayName"];
+          eventObj.lat = eventArr[i]["location"]["lat"];
+          eventObj.lng = eventArr[i]["location"]["lng"];
+          eventObj.startTime = eventArr[i]["start"]["time"];
+          eventObj.date = eventArr[i]["start"]["date"];
+          eventObj.uri = eventArr[i]["uri"];
+          eventObj.performers = eventArr[i]["performance"];
+
+
+          eventResults.push(eventObj)
+
+
+        };
+
+        console.log(eventResults);
 
       });
       }
