@@ -9,6 +9,7 @@ body {
 nav {
     opacity: .5;
     border-bottom: -2px solid black;
+    height:50px;
     font-family: 'Anonymous Pro', monospace;
 }
 
