@@ -21,8 +21,16 @@ nav {
     padding-top: 0px;
   }
 }
-#data-input{
+#genre-input{
     text-align:center;
+    float:left;
+}
+#date-input{
+    text-align:center;
+}
+#area-input{
+    text-align:center;
+    float:right;
 }
 .lead2{
     font-family: 'Oswald', sans-serif;
@@ -38,9 +46,12 @@ input[type="text"] {
     margin-left:456px;
 }
 .navbar-brand {
+    margin-left: 452px;
     position:relative;
     opacity: none;
     color: white;
+    font-family: 'Fjalla One', sans-serif;
+    font-family: 'Lobster', cursive;
 }
 .navbar-nav {
     margin-top:-10px;
