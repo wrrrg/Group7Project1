@@ -23,14 +23,15 @@ nav {
 }
 #genre-input{
     text-align:center;
-    float:left;
+    height:40px;
 }
 #date-input{
     text-align:center;
+    height:40px;
 }
 #area-input{
     text-align:center;
-    float:right;
+    height:40px;
 }
 .lead2{
     font-family: 'Oswald', sans-serif;
@@ -39,11 +40,7 @@ nav {
 #button1{
     max-height:80px;
     max-width:380px;
-    margin-left:370px;
-}
-input[type="text"] {
-    width: 200px;
-    margin-left:456px;
+    margin-left:10px;
 }
 .navbar-brand {
     margin-left: 452px;
@@ -54,10 +51,15 @@ input[type="text"] {
     font-family: 'Lobster', cursive;
 }
 .navbar-nav {
+    padding:20px;
     margin-top:-10px;
-    position:relative;
     opacity: none;
     color: white;
+    margin-left:-50px;
+    display: flex;
+    width:0%;
+    flex-direction: row;
+    text-align:top;
 }
 #icon {
     color: white;
