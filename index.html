@@ -1,45 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Vocal Local</title>
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-  <link href="https://fonts.googleapis.com/css?family=Rammetto+One" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-</head>
-<body>
-  <div class="container">
-  <div class="jumbotron">
-  <h1 id="header">Vocal Local</h1> 
-  <!-- Artist Select Box -->
-  <form id="artist-form">
-    <!-- Label for Text Box -->
-  <div class="box">
-    <div class="container container1">
-      <label for="date-input">Choose Your Date</label>
-      <!-- Text Input Box -->
-      <input type="text" id="date-input"><br>
-    </div>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Vocal Local</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500i|Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Lobster" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  </head>
+  <body>
+    <nav class="navbar fixed-top navbar-dark bg-dark text-center">
+      <div class="container">
+        <div class="col-md-4">
+          <a class="navbar-brand" href="#"><h1>Vocal Local</h1></a>
+        </div>
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <i id="icon" class="fas fa-search"></i>
+          </button>
+        </div>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <input type="text" id="genre-input">Genre<br>
+            <input type="date-input" id="date-input">Date<br>
+            <input type="text" id="area-input">Area<br>
+            <a class="btn btn-primary btn-lg" id="button1" href="#" role="button">Find out who's playing near you</a>
+          </div>
+      </div>
+      </div>
+    </nav>
     <div class="container">
-      <label for="area-input">Choose Your Area</label>
-      <!-- Text Input Box -->
-      <input type="text" id="area-input"><br>
+      <div class="jumbotron">
+        <h1 class="display-4">Results(this should appear only after clicking "Find out who's playing near you")</h1>
+        <p class="lead">Musicians playing near you.</p>
+        <hr class="my-4">
+        <p class="lead2">list is here(limit to 10 results)</p>
+        <p class="lead">
+        <a class="btn btn-primary btn-lg" id="button2" href="#" role="button">Search for more!</a>
+        </p>
+      </div>
     </div>
-    <div class="container">
-      <label for="number-input">Number of results</label>
-      <!-- Text Input Box -->
-      <input type="text" id="number-input"><br>
     </div>
-
-  </form>
-
-  <!-- Artist Information -->
-  <div id="artist-div"></div>
-  </div>
-  </div>
-
-</body>
-<script type="text/javascript" src="assets/javascript/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+  </body>
 </html>

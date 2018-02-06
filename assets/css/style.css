@@ -1,44 +1,74 @@
-body{
-
+* {
+    box-sizing: border-box;
+}
+body {
     background: url(http://static.tumblr.com/7b37633d29d9aaca9828b5132273cdf1/sy59fz4/1linmyvvt/tumblr_static_4y2skv97m24ogs84wc40sccso.jpg);
-    font-family: 'Rammetto One', cursive;
+    background-repeat: no-repeat;
+    background-attachment: fixed;    
+    background-size:cover;
+    font-family: 'Fjalla One', sans-serif;
+    font-family: 'Lobster', cursive;
 }
-h1{
-    height: 50px;
-    font-size: 2em;
+nav {
+    opacity: .5;
+    border-bottom: -2px solid black;
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 60px;
 }
-.box{
-    margin-left:7px;
+@media (max-width: 979px) {
+  body {
+    padding-top: 0px;
+  }
+}
+#genre-input{
+    text-align:center;
+    height:40px;
+}
+#date-input{
+    text-align:center;
+    height:40px;
+}
+#area-input{
+    text-align:center;
+    height:40px;
+}
+.lead2{
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+}
+#button1{
+    max-height:80px;
+    max-width:380px;
+    margin-left:10px;
+}
+.navbar-brand {
+    margin-left: 452px;
+    position:relative;
+    opacity: none;
+    color: white;
+    font-family: 'Fjalla One', sans-serif;
+    font-family: 'Lobster', cursive;
+}
+.navbar-nav {
+    padding:20px;
+    margin-top:-10px;
+    opacity: none;
+    color: white;
+    margin-left:-50px;
     display: flex;
-    width:100%;
+    width:0%;
     flex-direction: row;
+    text-align:top;
 }
-.container{
-    text-align:center;
-    font-size:1em;
-    padding: 2px;
+#icon {
+    color: white;
+    opacity: none;
 }
-#artist-form {  
-    font-size: 1.5em;
-    top: 25px;
-    left: 400px;
+.jumbotron {
+    clear: both;
+    overflow:auto;
+    margin-top: 300px;
+    height:500px;
+    text-align: center;
 }
-#header{
-    text-align:center;
-    top: 25px;
-    left: 600px;
-}
-#select-artist{
-    font-family: 'Rammetto One', cursive;
-}
-
-input{
-    font-size: 1em;
-}
-
-.background-image{
-	background-image: url('../images/band.jpg');
-	width: 100%;
-	height: auto;
-}
-
