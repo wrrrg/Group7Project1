@@ -21,6 +21,9 @@ nav {
     padding-top: 0px;
   }
 }
+#data-input{
+    text-align:center;
+}
 .lead2{
     font-family: 'Oswald', sans-serif;
     font-family: 'Montserrat', sans-serif;
@@ -32,7 +35,7 @@ nav {
 }
 input[type="text"] {
     width: 200px;
-    margin-left:458px;
+    margin-left:456px;
 }
 .navbar-brand {
     position:relative;
