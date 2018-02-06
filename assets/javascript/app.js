@@ -45,12 +45,12 @@ var apiKeyGoogleDirections = "AIzaSyCnd-IWrCKGW-QzK2iM3opYUL7Z_0gaR3A";
 var apiKeyGoogleMatrix = 'AIzaSyC4VTDL8HDsd-eNs_89_lBzicvSKZAaWa0';
 
 // Global initialized Variables
-//  - Songkick -
+//  - Songkick Variables-
 var cityGPS = '';
 var eventResults = [];
 var destinationArr = [];
 
-//  - Google Maps -
+//  - Google Maps Variables -
 var distanceResults = [];
 
 
