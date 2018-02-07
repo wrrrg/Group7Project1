@@ -31,19 +31,123 @@ function searchBandsInTown(artist) {
 
 
 // io09K9l3ebJxmxe2 test SongKick API Key
-var apiKey = "io09K9l3ebJxmxe2";
+var apiKeySongKick = "io09K9l3ebJxmxe2";
 var todaysDate = moment().format("YYYY-MM-DD");
 console.log(todaysDate);
 
-var gps = '';
+// google maps geolocation api AIzaSyCMYSEdplA8YCDESSjE-KxOji84lQjKNTU
+var apiKeyGoogleGeoLocate = "AIzaSyCMYSEdplA8YCDESSjE-KxOji84lQjKNTU";
+
+// google maps directions api AIzaSyCnd-IWrCKGW-QzK2iM3opYUL7Z_0gaR3A
+var apiKeyGoogleDirections = "AIzaSyCnd-IWrCKGW-QzK2iM3opYUL7Z_0gaR3A";
+
+// google maps distance matrix api AIzaSyC4VTDL8HDsd-eNs_89_lBzicvSKZAaWa0
+var apiKeyGoogleMatrix = 'AIzaSyC4VTDL8HDsd-eNs_89_lBzicvSKZAaWa0';
+
+// Global initialized Variables
+//  - Songkick Variables-
+var cityGPS = '';
+var eventResults = [];
+var destinationArr = [];
+
+//  - Google Maps Variables -
+var distanceResults = [];
+
+
+// google maps object for function storage
+
+var googleMaps = {
+
+  // Update the global array of destiations with lng/lat/name objects using an array of events
+  createDestinationArr: function(eventArr){
+    destinationArr = [];
+
+    for (var i = 0; i < eventResults.length; i++) {
+      var destinationObj = {};
+      destinationObj.lat = eventResults[i]["lat"];
+      destinationObj.lng = eventResults[i]["lng"];
+      destinationObj.name = eventResults[i]["venue"]["displayName"];
+
+      destinationArr.push(destinationObj);
+    };
+
+    console.log(destinationArr);
+  },
+  // Queries Google Maps for distances between origin and all destinations in the given destination Array
+  findDistance: function(origin, destinationArr){
+
+      destinations = "";
+
+      for (var i = 0; i < destinationArr.length; i++) {
+        str = "";
+
+        str += destinationArr[i]["lat"]
+        str += "%2C"
+        str += destinationArr[i]["lng"]
+        str += "%7C"
+
+        destinations += str;
+      };
+      // removes the last | for formatting the query correctly
+      destinations = destinations.slice(0, -3);
+
+
+
+      var origins = origin;
+
+      console.log(destinations);
+
+
+      var queryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=" + origins + "&destinations=" + destinations + "6&key=" + apiKeyGoogleMatrix;
+
+      console.log(queryURL);
+
+      $.ajax({
+        url: queryURL,
+        method: 'GET'
+      }).then(function(response) {
+          console.log(response);
+          console.log(response["rows"]);
+          console.log(response["rows"][0]["elements"]);
+          // console.log(response["rows"][0]["elements"][0]["distance"]);
+          // console.log(response["rows"][0]["elements"][0]["duration"]);
+
+          var distanceArr = response["rows"][0]["elements"];
+          distanceResults = [];
+        // add the calculated distances and durations to our distance results
+          for (var i = 0; i < distanceArr.length; i++) {
+            var distanceObj = {};
+            distanceObj.distance = distanceArr[i]["distance"];
+            distanceObj.duration = distanceArr[i]["duration"];
+            distanceResults.push(distanceObj);
+          };
+      // add the distance and duration properties to our destiationArr and eventResults array items
+
+          for (var i = 0; i < distanceResults.length; i++) {
+            destinationArr[i]["distance"] = distanceResults[i]["distance"];
+            eventResults[i]["distance"] = distanceResults[i]["distance"];
+            destinationArr[i]["duration"] = distanceResults[i]["duration"];
+            eventResults[i]["duration"] = distanceResults[i]["duration"];
+          };
+
+
+
+        });
+
+    },
+
+
+};
 
 
 
 //songkick object for function storage
 
 var songkick = {
+
+  // find GPS of a city using a search based on "cityname" string. Updates global var gps.
   findCityGps: function(location){
-      var queryURL = "http://api.songkick.com/api/3.0/search/locations.json?query=" + location + "&apikey=io09K9l3ebJxmxe2";
+      var queryURL = "http://api.songkick.com/api/3.0/search/locations.json?query=" + location + "&apikey=" + apiKeySongKick;
       // var queryURL = "http://api.songkick.com/api/3.0/search/locations.json?location=clientip&apikey=io09K9l3ebJxmxe2";
 
 
@@ -57,7 +161,8 @@ var songkick = {
 
         var long = response["resultsPage"]["results"]["location"][0]["metroArea"]["lng"];
 
-        gps = lat + "," + long;
+        cityGPS = lat + "," + long;
+        console.log(cityGPS);
         // console.log(lat);
         // console.log(long);
         // console.log(gps.toString());
@@ -77,7 +182,7 @@ var songkick = {
 
       var gps = "geo:" + location;
       // var queryURL = "http://api.songkick.com/api/3.0/events.json?" + metroId + "/calendar.json?apikey=io09K9l3ebJxmxe2";
-      var queryURL = "http://api.songkick.com/api/3.0/events.json?apikey=" + apiKey + "&location=" + gps + "&per_page=15" + "&min_date=" + todaysDate + "&max_date=" + todaysDate;
+      var queryURL = "http://api.songkick.com/api/3.0/events.json?apikey=" + apiKeySongKick  + "&location=" + gps + "&per_page=15" + "&min_date=" + todaysDate + "&max_date=" + todaysDate;
 
 
       $.ajax({
@@ -85,7 +190,30 @@ var songkick = {
         method: 'GET'
       }).then(function(response) {
         console.log(response);
-        console.log(response["resultsPage"]["results"]);
+        console.log(response["resultsPage"]["results"]["event"]);
+
+        var eventArr = response["resultsPage"]["results"]["event"];
+
+        eventResults = [];
+
+        for (var i = 0; i < eventArr.length; i++) {
+          var eventObj = {};
+          eventObj.name = eventArr[i]["displayName"];
+          eventObj.lat = eventArr[i]["location"]["lat"];
+          eventObj.lng = eventArr[i]["location"]["lng"];
+          eventObj.startTime = eventArr[i]["start"]["time"];
+          eventObj.date = eventArr[i]["start"]["date"];
+          eventObj.uri = eventArr[i]["uri"];
+          eventObj.performers = eventArr[i]["performance"];
+          eventObj.venue = eventArr[i]["venue"];
+
+
+          eventResults.push(eventObj)
+
+
+        };
+
+        console.log(eventResults);
 
       });
       }
@@ -97,48 +225,3 @@ var austinGPS = "30.3005,-97.7472";
 
 songkick.findCityGps("austin");
 songkick.findEvents(austinGPS);
-//
-// findCityGps = function(location){
-//     var queryURL = "http://api.songkick.com/api/3.0/search/locations.json?query=" + location + "&apikey=io09K9l3ebJxmxe2";
-//     // var queryURL = "http://api.songkick.com/api/3.0/search/locations.json?location=clientip&apikey=io09K9l3ebJxmxe2";
-//
-//
-//     $.ajax({
-//       url: queryURL,
-//       method: 'GET'
-//     }).then(function(response) {
-//       console.log(response);
-//       // store AJAX request data in a results variable
-//       var metroId = response["resultsPage"]["results"]["location"][0]["metroArea"]["id"];
-//       console.log(metroId);
-//       return metroId
-//
-//     });
-//     };
-//
-// // Test Variables
-// var austin = findSKMetroId("austin");
-// var austinGPS = "30.3190018,-97.7960005";
-//
-//
-// // finds Events using GPS location for Today's Date
-// findEvents = function(location){
-//     // var metroId = metroId;
-//
-//     // Location needs to be in "lat,long" using positive and negative for north/south east/west
-//     // var gps = location;
-//
-//     var gps = "geo:" + location;
-//     // var queryURL = "http://api.songkick.com/api/3.0/events.json?" + metroId + "/calendar.json?apikey=io09K9l3ebJxmxe2";
-//     var queryURL = "http://api.songkick.com/api/3.0/events.json?apikey=" + apiKey + "&location=" + gps + "&per_page=15" + "&min_date=" + todaysDate + "&max_date=" + todaysDate;
-//
-//
-//     $.ajax({
-//       url: queryURL,
-//       method: 'GET'
-//     }).then(function(response) {
-//       console.log(response);
-//       console.log(response["resultsPage"]["results"]);
-//
-//     });
-//     };
