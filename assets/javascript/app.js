@@ -216,7 +216,10 @@ var songkick = {
         console.log(eventResults);
 
       });
-      }
+
+    };
+
+
 
 };
 

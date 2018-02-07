@@ -1,103 +1,186 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Lobster|Rammetto+One" rel="stylesheet">
-    <title>Vocal Local</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:900i" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-  </head>
-  <body>
-    <nav class="navbar fixed-top navbar-light bg-light">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#"><h1><i class="fas fa-headphones"></i></h1></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span><i class="fas fa-search"></i></span>
-          </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-              <a class="nav-item nav-link" href="#today"><h1>today</h1></a>
-              <a class="nav-item nav-link" href="#upcoming"><h1>upcoming</h1></a>
-              <a class="nav-item nav-link" href="#search"><h1><i class="fas fa-search"></i> your artist</h1></a>
+
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<title>Vocal Local</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+		<link href="https://fonts.googleapis.com/css?family=Lobster|Raleway:700" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+	</head>
+
+	<body style="font-family: 'Raleway', sans-serif">
+
+		<nav class="navbar fixed-top navbar-light bg-light">
+    		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#"><h1><i class="fas fa-headphones"></i></h1></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+	    		<span><i class="fas fa-search"></i></span>
+	  			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    			<div class="navbar-nav">
+      				<a class="nav-item nav-link" href="#today"><h1>today</h1></a>
+      				<a class="nav-item nav-link" href="#upcoming"><h1>upcoming</h1></a>
+      				<a class="nav-item nav-link" href="#search"><h1><i class="fas fa-search"></i> your artist</h1></a>
+    			</div>
+  			</div>
+			</nav>
+		</nav>
+
+		<div id="home" class="jumbotron jumbotron-fluid">
+			<div class="container">
+				<div id="homeBrand" class="jumbotron text-right">
+					<h1 class="display-3" style="font-family: 'Lobster', cursive;">v<i class="fas fa-headphones"></i>caLocal</h1>
+					<hr class="my-4">
+					<br>
+					<br>
+					<p class="lead text-white">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+					<br>
+					<p class="lead text-warning">we can put anything here, maybe about our brand, about our product, what vocal local is about</p>
+				</div>
+			</div>
+		</div>
+
+		<div id="today" class="jumbotron jumbotron-fluid">
+			<div class="container">
+				<div id="todayBrand" class="jumbotron text-right">
+					<h1 class="display-4" style="font-family: 'Lobster', cursive;">t<i class="fas fa-headphones"></i>day's events</h1>
+					<hr class="my-4">
+					<br>
+					<br>
+					<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+					<br>
+					<p class="lead text-warning">here maybe we can proactively list out the artists that are playing locally for the day. simplest is on a table form. best if we could pull out clickable thumbnails.</p>
+				</div>
+			</div>
+		</div>
+
+		<div id="upcoming" class="jumbotron jumbotron-fluid">
+			<div class="container">
+				<div id="upcomingBrand" class="jumbotron text-right text-light">
+					<h1 class="display-4" style="font-family: 'Lobster', cursive;">upc<i class="fas fa-headphones"></i>ming events</h1>
+					<hr class="my-4">
+					<br>
+					<br>
+					<p class="lead text-white">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+					<br>
+					<p class="lead text-warning">here maybe is where we can put a "date" option for the user. we can show up to 5 days ahead as a start, then give them option for the desired date with the datepicker.</p>
+				</div>
+			</div>
+		</div>
+
+		<div id="search" class="jumbotron jumbotron-fluid bg-white">
+			<div class="container">
+				<div id="searchBrand" class="jumbotron text-right text-light">
+					<h1 class="display-4" style="font-family: 'Lobster', cursive;">y<i class="fas fa-headphones"></i>ur artist</h1>
+					<hr class="my-4">
+					<br>
+					<br>
+					<p class="lead text-white">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+					<br>
+					<p class="lead text-warning">here is when they just wanna search for a certian artist. we could just simply use bands in town here.</p>
+				</div>
+			</div>
+		</div>
+	<!--
+		<nav class="navbar fixed-top navbar-light bg-light">
+			<div class="container">
+				<a class="navbar-brand" href="#"><h1>v<i class="fas fa-headphones"></i>caLocal</h1></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#">Features</a>
+      <a class="nav-item nav-link" href="#">Pricing</a>
+      <a class="nav-item nav-link disabled" href="#">Disabled</a>
+    </div>
+  </div>
+  </div>
+    </nav>-->
+
+			<!--<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<div class="navbar-nav text-center">
+				<form id="artist-form">
+				<div class="form-row">
+
+                <div class="form-group col-md-3">
+                  <div class="card">
+                    <div class="card-body">
+						<label for="date-input">Date</label><br>
+						<input class="form-control" type="date" id="date-input">
+                    </div>
+                  </div>
+                </div>
+					      <div class="form-group col-md-3">
+                  <div class="card">
+                    <div class="card-body">
+			      					<label for="area-input">Location</label><br>
+			      					<input class="form-control" type="text" id="area-input">
+			      				</div>
+                  </div>
+                </div>
+			      		<div class="form-group col-md-3">
+                  <div class="card">
+                    <div class="card-body">
+                      <label for="genre-input">Genre</label><br>
+											<select id="genre-input" class="form-control">
+												<option selected>All</option>
+												<option>Pop</option>
+												<option>Rock</option>
+												<option>Hip Hop</option>
+												<option>Electronic</option>
+												<option>R&B</option>
+												<option>Alternative</option>
+												<option>Metal</option>
+												<option>Punk</option>
+												<option>Country</option>
+												<option>Jazz</option>
+												<option>Funk</option>
+											</select>
+										</div>
+                  </div>
+                </div>
+			      		<div class="form-group col-md-3">
+                  <div class="card">
+                    <div class="card-body">
+											<label for="number-input">Number of results</label>
+											<input class="form-control" type="number" id="number-input">
+										</div>
+									</div>
+                </div>
+								<button type="submit" class="btn btn-default">Go!</button>
+              </div>
+            </form>
           </div>
-        </div>
-      </nav>
-    </nav>
-    <div id="home" class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <div id="homeBrand" class="jumbotron text-right">
-          <h1 class="display-4">v<i class="fas fa-headphones"></i>caLocal</h1>
-          <hr class="my-4">
-          <br>
-          <br>
-          <p class="lead text-white">I'm not joking when I say I'm suicidal hahaha</p>
-          <br>
-          <p class="lead text-warning">we can put anything here, maybe about our brand, about our product, what vocal local is about</p>
-        </div>
-      </div>
-    </div>
+        </div>-->
 
-    <div id="today" class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <div id="todayBrand" class="jumbotron text-right">
-          <h1 class="display-4">T<i class="fas fa-headphones"></i>day's events</h1>
-          <hr class="my-4">
-          <br>
-          <br>
-          <p class="lead">I'm NOT SUICIDAL</p>
-          <br>
-          <p class="lead text-warning">dank</p>
-        </div>
-      </div>
-    </div>
 
-    <div id="upcoming" class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <div id="upcomingBrand" class="jumbotron text-right text-light">
-          <h1 class="display-4">Upc<i class="fas fa-headphones"></i>ming events</h1>
-          <hr class="my-4">
-          <br>
-          <br>
-          <p class="lead text-white">I'm NOT SUICIDAL</p>
-          <br>
-          <p class="lead text-warning">dank</p>
-        </div>
-      </div>
-    </div>
 
-    <div id="search" class="jumbotron jumbotron-fluid bg-white">
-      <div class="container">
-        <div id="searchBrand" class="jumbotron text-right text-light">
-          <h1 class="display-4">Y<i class="fas fa-headphones"></i>ur artist</h1>
-          <hr class="my-4">
-          <br>
-          <br>
-          <p class="lead text-white">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-          <br>
-          <p class="lead text-warning">here is when they just wanna search for a certian artist. we could just simply use bands in town here.</p>
-        </div>
-      </div>
-    </div>
-  <nav class="navbar navbar-light bg-light text-center">
-    <div class="container">
-      <p>copyright &copy; 2018 v<i class="fas fa-headphones"></i>caLocal</p>
-    </div>
-  </nav>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-    <script type="text/javascript" src="assets/javascript/app.js"></script>
-  </body>
+
+
+
+	<nav class="navbar navbar-light bg-light text-center">
+		<div class="container">
+			<p>copyright &copy; 2018 v<i class="fas fa-headphones"></i>caLocal</p>
+		</div>
+	</nav>
+
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="assets/javascript/app.js"></script>
+	</body>
 
 </html>
-
