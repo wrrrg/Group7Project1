@@ -51,12 +51,41 @@ var eventResults = [];
 var destinationArr = [];
 
 //  - Google Maps Variables -
+var userGPS = {};
 var distanceResults = [];
 
 
 // google maps object for function storage
 
 var googleMaps = {
+
+  // Testing geolocation
+  getLocation: function(){
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(googleMaps.showPosition);
+    }else{
+      console.log("Location tracking not possible")
+    };
+    // var geo = new GeolocationSensor();
+    //   geo.start();
+    //
+    //   geo.onreading = () => console.log(`lat: ${geo.latitude}, long: ${geo.longitude}`);
+    //
+    //   geo.onerror = event => console.error(event.error.name, event.error.message);
+  },
+
+  // This function is called automatically by the geolocation function to report the coordinates. Currently it saves to a global var and console.logs them.
+
+    showPosition: function(position){
+      userGPS = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+
+        songKickStr:  position.coords.latitude + "," + position.coords.longitude,
+        googleStr: position.coords.latitude + "%2C" + position.coords.longitude
+      };
+      // console.log("Latitude: " + position.coords.latitude "Longitude:" + position.coords.longitude );
+    },
 
   // Update the global array of destiations with lng/lat/name objects using an array of events
   createDestinationArr: function(eventArr){
@@ -184,7 +213,7 @@ var songkick = {
       // var queryURL = "http://api.songkick.com/api/3.0/events.json?" + metroId + "/calendar.json?apikey=io09K9l3ebJxmxe2";
       var queryURL = "http://api.songkick.com/api/3.0/events.json?apikey=" + apiKeySongKick  + "&location=" + gps + "&per_page=15" + "&min_date=" + todaysDate + "&max_date=" + todaysDate;
 
-
+      console.log(queryURL);
       $.ajax({
         url: queryURL,
         method: 'GET'
@@ -216,10 +245,7 @@ var songkick = {
         console.log(eventResults);
 
       });
-
-    };
-
-
+      }
 
 };
 
@@ -227,4 +253,4 @@ var songkick = {
 var austinGPS = "30.3005,-97.7472";
 
 songkick.findCityGps("austin");
-songkick.findEvents(austinGPS);
+// songkick.findEvents(austinGPS);
