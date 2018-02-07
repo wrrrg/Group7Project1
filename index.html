@@ -3,48 +3,93 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Rammetto+One" rel="stylesheet">
     <title>Vocal Local</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:500i|Oswald" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Lobster" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:900i" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
   </head>
   <body>
-    <nav class="navbar fixed-top navbar-dark bg-dark text-center">
-      <div class="container">
-        <div class="col-md-4">
-          <a class="navbar-brand" href="#"><h1>Vocal Local</h1></a>
-        </div>
-        <div class="col-md-4">
-        </div>
-        <div class="col-md-4">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <i id="icon" class="fas fa-search"></i>
+    <nav class="navbar fixed-top navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#"><h1><i class="fas fa-headphones"></i></h1></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span><i class="fas fa-search"></i></span>
           </button>
-        </div>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <input type="text" id="genre-input">Genre<br>
-            <input type="date-input" id="date-input">Date<br>
-            <input type="text" id="area-input">Area<br>
-            <a class="btn btn-primary btn-lg" id="button1" href="#" role="button">Find out who's playing near you</a>
+              <a class="nav-item nav-link" href="#today"><h1>today</h1></a>
+              <a class="nav-item nav-link" href="#upcoming"><h1>upcoming</h1></a>
+              <a class="nav-item nav-link" href="#search"><h1><i class="fas fa-search"></i> your artist</h1></a>
           </div>
-      </div>
-      </div>
+        </div>
+      </nav>
     </nav>
-    <div class="container">
-      <div class="jumbotron">
-        <h1 class="display-4">Results(this should appear only after clicking "Find out who's playing near you")</h1>
-        <p class="lead">Musicians playing near you.</p>
-        <hr class="my-4">
-        <p class="lead2">list is here(limit to 10 results)</p>
-        <p class="lead">
-        <a class="btn btn-primary btn-lg" id="button2" href="#" role="button">Search for more!</a>
-        </p>
+    <div id="home" class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <div id="homeBrand" class="jumbotron text-right">
+          <h1 class="display-4">v<i class="fas fa-headphones"></i>caLocal</h1>
+          <hr class="my-4">
+          <br>
+          <br>
+          <p class="lead text-white">I'm not joking when I say I'm suicidal hahaha</p>
+          <br>
+          <p class="lead text-warning">we can put anything here, maybe about our brand, about our product, what vocal local is about</p>
+        </div>
       </div>
     </div>
+
+    <div id="today" class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <div id="todayBrand" class="jumbotron text-right">
+          <h1 class="display-4">T<i class="fas fa-headphones"></i>day's events</h1>
+          <hr class="my-4">
+          <br>
+          <br>
+          <p class="lead">I'm NOT SUICIDAL</p>
+          <br>
+          <p class="lead text-warning">dank</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="upcoming" class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <div id="upcomingBrand" class="jumbotron text-right text-light">
+          <h1 class="display-4">Upc<i class="fas fa-headphones"></i>ming events</h1>
+          <hr class="my-4">
+          <br>
+          <br>
+          <p class="lead text-white">I'm NOT SUICIDAL</p>
+          <br>
+          <p class="lead text-warning">dank</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="search" class="jumbotron jumbotron-fluid bg-white">
+      <div class="container">
+        <div id="searchBrand" class="jumbotron text-right text-light">
+          <h1 class="display-4">Y<i class="fas fa-headphones"></i>ur artist</h1>
+          <hr class="my-4">
+          <br>
+          <br>
+          <p class="lead text-white">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+          <br>
+          <p class="lead text-warning">here is when they just wanna search for a certian artist. we could just simply use bands in town here.</p>
+        </div>
+      </div>
+    </div>
+  <nav class="navbar navbar-light bg-light text-center">
+    <div class="container">
+      <p>copyright &copy; 2018 v<i class="fas fa-headphones"></i>caLocal</p>
+    </div>
+  </nav>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
@@ -53,4 +98,6 @@
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
     <script type="text/javascript" src="assets/javascript/app.js"></script>
   </body>
+
 </html>
+
