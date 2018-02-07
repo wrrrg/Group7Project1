@@ -9,6 +9,10 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 
+h1 {
+    font-family: 'Lobster', cursive;
+}
+
 .navbar {
     background: rgb(255, 255, 255);
     background: rgba(255, 255, 255, 0.2);
@@ -21,11 +25,12 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    margin-bottom: -30px;
 }
 
 #homeBrand {
-    height: 475px;
-    margin-top: 50px;
+    height: 510px;
+    margin-top: 40px;
     background: rgb(255, 255, 255);
     background: rgba(255, 255, 255, 0.2);
 }
@@ -37,11 +42,12 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    margin-bottom: -30px;
 }
 
 #todayBrand {
-    height: 475px;
-    margin-top: 50px;
+    height: 510px;
+    margin-top: 40px;
     background-color: white;
 }
 
@@ -52,11 +58,12 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    margin-bottom: -30px;
 }
 
 #upcomingBrand {
-    height: 475px;
-    margin-top: 50px;
+    height: 510px;
+    margin-top: 40px;
     background: rgb(255, 255, 255);
     background: rgba(255, 255, 255, 0.2);
 }
@@ -68,10 +75,11 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    margin-bottom: -30px;
 }
 
 #searchBrand {
-    height: 475px;
-    margin-top: 50px;
+    height: 510px;
+    margin-top: 40px;
     background-color: black;
 }
