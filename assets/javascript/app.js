@@ -250,7 +250,10 @@ var songkick = {
 };
 
 // Test Variables
-var austinGPS = "30.3005,-97.7472";
+// var austinGPS = "30.3005,-97.7472";
+//
+// songkick.findCityGps("austin");
+// disable this later - only for testing functions
 
-songkick.findCityGps("austin");
+
 // songkick.findEvents(austinGPS);
