@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    color: #CBA135;
 }
 
 body {
@@ -33,9 +34,10 @@ h1 {
     margin-top: 40px;
     background: rgb(255, 255, 255);
     background: rgba(255, 255, 255, 0.2);
+    border: 1px solid #CBA135;
 }
 
-#today {
+#yourEvents {
     background-color: black;
     min-height: 650px;
     background-attachment: fixed;
@@ -45,10 +47,8 @@ h1 {
     margin-bottom: -30px;
 }
 
-#todayBrand {
-    height: 510px;
-    margin-top: 40px;
-    background-color: white;
+.sidebarEvents, #mainEvents {
+    background-color: black;
 }
 
 #upcoming {
@@ -66,6 +66,7 @@ h1 {
     margin-top: 40px;
     background: rgb(255, 255, 255);
     background: rgba(255, 255, 255, 0.2);
+    border: 1px solid #CBA135;
 }
 
 #search {
@@ -82,4 +83,11 @@ h1 {
     height: 510px;
     margin-top: 40px;
     background-color: black;
+    border: 1px solid #CBA135;
+}
+/* sample */
+.img-thumbnail {
+    height: 175px;
+    width: 175px;
+    margin: 15px;
 }

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
-
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,18 +16,18 @@
 	</head>
 
 	<body style="font-family: 'Raleway', sans-serif">
-<!--NAVBAR. (PAGE LINKS) HOME/YOUR ARTIST/SEARCH ARTIST-->
+
 		<nav class="navbar fixed-top navbar-light bg-light">
     		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" href="#"><h1><i class="fas fa-headphones"></i></h1></a>
+			<a class="navbar-brand" href="index.html"><h1><i class="fas fa-headphones"></i></h1></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 	    		<span><i class="fas fa-search"></i></span>
 	  			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     			<div class="navbar-nav">
-      				<a class="nav-item nav-link" href="#yourEvents"><h1>your events</h1></a>
-      				<!--<a class="nav-item nav-link" href="#upcoming"><h1>upcoming</h1></a>-->
-      				<a class="nav-item nav-link" href="#search"><h1><i class="fas fa-search"></i> your artist</h1></a>
+      				<a class="nav-item nav-link" href="#today">
+      					today's events
+      				</a>
     			</div>
   			</div>
 			</nav>
@@ -37,72 +36,57 @@
 		<div id="home" class="jumbotron jumbotron-fluid">
 			<div class="container">
 				<div id="homeBrand" class="jumbotron">
-					<div class="row">
-					<div class="container text-right">
-						<h1 class="display-2" style="font-family: 'Lobster', cursive;">v<i class="fas fa-headphones"></i>caLocal</h1>
-						<hr class="my-4">
-					</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<p class="h3">Your best bud, </p>
-							<p class="h3">on searching for artists' hub.</p>
-							<p class="h1">
-								<span style="font-family: 'Lobster', cursive;">L</span>og.
-								<span style="font-family: 'Lobster', cursive;">L</span>isten.
-								<span style="font-family: 'Lobster', cursive;">L</span>ive.
-							</p>
-						</div>
-						<div class="col-md-6">
-							<form>
-							<div class="row">
-							<div class="col">
-								<input id="area-input" type="text" class="form-control" placeholder="Location">
-							</div>
-							<div class="row">
-							<div class="col">
-								<a href="#yourEvents"><button id="submit-input" type="button" class="btn btn-white"><i class="fas fa-play"></i></button></a>
-							</div>
-							</div>
-							</div>
-							</form>
-						</div>
-					</div>
+					<h1 class="display-3" style="font-family: 'Lobster', cursive;">v<i class="fas fa-headphones"></i>caLocal</h1>
+					<hr class="my-4">
+					<br>
+					<br>
+					<p class="lead text-white">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+					<br>
+					<p class="lead text-warning">we can put anything here, maybe about our brand, about our product, what vocal local is about</p>
 				</div>
 			</div>
 		</div>
 
-		<div id="yourEvents" class="jumbotron jumbotron-fluid">
-			<div class="row">
-				<div class="col-md-3">
-					<div class="card sidebarEvents">
-					<div class="card-body text-center">
-						<p class="h1 yourEvents" style="font-family: 'Lobster', cursive;">y<i class="fas fa-headphones"></i>ur events</p>
-						<hr class="my-4">
-						<form>
-						<div class="row">
-						<div class="col">
-						<input id="date-input" class="form-control" type="date">
-						</div>
-						</div>
-						<br>
-						<div class="row">
-						<div class="col">
-						<a href="#home"><button type="button" class="btn btn-white btn-block">enter location <i class="fas fa-arrow-alt-circle-up"></i></button></a>
-						</div>
-						</div>
-						</form>
-					</div>
-					</div>
-				</div>
-				<div class="col-md-9">
-					<div class="card" id="mainEvents">
-					<div class="card-body text-center">
-					<div class="row" id="eventResults">
-						<p class="h1 display-1">Enter your location to see who's playing near you.</p>
-					</div>
-					</div>
-					</div>
+		<div id="today" class="jumbotron jumbotron-fluid">
+			<div class="container">
+				<div id="todayBrand" class="jumbotron">
+					<p class="h1" style="font-family: 'Lobster', cursive;">t<i class="fas fa-headphones"></i>day's events</p>
+					<hr class="my-4">
+<div class="form-group col-md-3">
+<div class="card">
+<div class="card-body">
+<label for="genre-input">Genre</label><br>
+<select id="genre-input" class="form-control">
+<option selected>All</option>
+<option>Pop</option>
+<option>Rock</option>
+<option>Hip Hop</option>
+<option>Electronic</option>
+<option>R&B</option>
+<option>Alternative</option>
+<option>Metal</option>
+<option>Punk</option>
+<option>Country</option>
+<option>Jazz</option>
+<option>Funk</option>
+</select>
+</div>
+</div>
+</div>
+					<br>
+					<br>
+					<p class="lead">sample populated results for "today". click thumbnail for more details.</p>
+					<br>
+					<a href="today.html"><img src="https://media.pitchfork.com/photos/5929b3309d034d5c69bf4ca7/1:1/w_600/76cd0167.jpeg" alt="Lana Del Rey" class="img-thumbnail"></a>
+					<a href="today.html"><img src="https://media.pitchfork.com/photos/5929b3309d034d5c69bf4ca7/1:1/w_600/76cd0167.jpeg" alt="Lana Del Rey" class="img-thumbnail"></a>
+					<a href="today.html"><img src="https://media.pitchfork.com/photos/5929b3309d034d5c69bf4ca7/1:1/w_600/76cd0167.jpeg" alt="Lana Del Rey" class="img-thumbnail"></a>
+					<a href="today.html"><img src="https://media.pitchfork.com/photos/5929b3309d034d5c69bf4ca7/1:1/w_600/76cd0167.jpeg" alt="Lana Del Rey" class="img-thumbnail"></a>
+					<a href="today.html"><img src="https://media.pitchfork.com/photos/5929b3309d034d5c69bf4ca7/1:1/w_600/76cd0167.jpeg" alt="Lana Del Rey" class="img-thumbnail"></a>
+					<a href="today.html"><img src="https://media.pitchfork.com/photos/5929b3309d034d5c69bf4ca7/1:1/w_600/76cd0167.jpeg" alt="Lana Del Rey" class="img-thumbnail"></a>
+					<a href="today.html"><img src="https://media.pitchfork.com/photos/5929b3309d034d5c69bf4ca7/1:1/w_600/76cd0167.jpeg" alt="Lana Del Rey" class="img-thumbnail"></a>
+					<a href="today.html"><img src="https://media.pitchfork.com/photos/5929b3309d034d5c69bf4ca7/1:1/w_600/76cd0167.jpeg" alt="Lana Del Rey" class="img-thumbnail"></a>
+					<a href="today.html"><img src="https://media.pitchfork.com/photos/5929b3309d034d5c69bf4ca7/1:1/w_600/76cd0167.jpeg" alt="Lana Del Rey" class="img-thumbnail"></a>
+					<a href="today.html"><img src="https://media.pitchfork.com/photos/5929b3309d034d5c69bf4ca7/1:1/w_600/76cd0167.jpeg" alt="Lana Del Rey" class="img-thumbnail"></a>
 				</div>
 			</div>
 		</div>
@@ -186,31 +170,11 @@
 			</div>
 		</div>
 
-	<!--
-		<nav class="navbar fixed-top navbar-light bg-light">
-			<div class="container">
-				<a class="navbar-brand" href="#"><h1>v<i class="fas fa-headphones"></i>caLocal</h1></a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-
-				</button>
-				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Features</a>
-      <a class="nav-item nav-link" href="#">Pricing</a>
-      <a class="nav-item nav-link disabled" href="#">Disabled</a>
-    </div>
-  </div>
-  </div>
-    </nav>-->
-
-
 			<!--<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<div class="navbar-nav text-center">
 				<form id="artist-form">
 				<div class="form-row">
-
+								
                 <div class="form-group col-md-3">
                   <div class="card">
                     <div class="card-body">
@@ -258,26 +222,25 @@
                 </div>
 								<button type="submit" class="btn btn-default">Go!</button>
               </div>
-            </form>
+            </form>	
           </div>
-        </div>-->
+        </div>-->	
+      
+
+		
 
 
-
-
-
-
+		
 	<nav class="navbar navbar-light bg-light text-center">
 		<div class="container">
 			<p>copyright &copy; 2018 v<i class="fas fa-headphones"></i>caLocal</p>
 		</div>
 	</nav>
-
+		
 		</div>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="assets/javascript/app.js"></script>
 	</body>
