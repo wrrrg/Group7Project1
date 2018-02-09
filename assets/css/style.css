@@ -81,24 +81,3 @@ h1 {
     overflow: auto;
 }
 
-/*#search {
-    min-height: 650px;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-bottom: -30px;
-}
-
-#searchBrand {
-    height: 510px;
-    margin-top: 40px;
-    background-color: black;
-    border: 1px solid #CBA135;
-}*/
-/* sample */
-.img-thumbnail {
-    height: 175px;
-    width: 175px;
-    margin: 15px;
-}
