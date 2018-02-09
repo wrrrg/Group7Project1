@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
+
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,7 +28,7 @@
     			<div class="navbar-nav">
       				<a class="nav-item nav-link" href="#yourEvents"><h1>your events</h1></a>
       				<!--<a class="nav-item nav-link" href="#upcoming"><h1>upcoming</h1></a>-->
-      				<a class="nav-item nav-link" href="#search"><h1><i class="fas fa-search"></i> your artist</h1></a>
+      				<a class="nav-item nav-link" href="#yourArtist"><h1><i class="fas fa-search"></i> your artist</h1></a>
     			</div>
   			</div>
 			</nav>
@@ -37,7 +38,7 @@
 			<div class="container">
 				<div id="homeBrand" class="jumbotron">
 					<div class="row">
-					<div class="container text-right">
+					<div class="container text-center">
 						<h1 class="display-2" style="font-family: 'Lobster', cursive;">v<i class="fas fa-headphones"></i>caLocal</h1>
 						<hr class="my-4">
 					</div>
@@ -52,16 +53,20 @@
 								<span style="font-family: 'Lobster', cursive;">L</span>ive.
 							</p>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-6 text-center">
 							<form>
 							<div class="row">
 							<div class="col">
-								<input id="area-input" type="text" class="form-control" placeholder="Location">
+                				<button class="btn btn-white btn-block" type="button" name="button" id="use-gps-button">Find Events Near Me</button>
+                			</div>
+                			</div>
+                			<p class="h3">or</p>
+							<div class="form-row">
+							<div class="form-group col-md-11">
+								<input id="area-input" type="text" class="form-control" placeholder="Enter Location: Ex. '6th St Austin Texas'">
 							</div>
-							<div class="row">
-							<div class="col">
+							<div class="col-md-1">
 								<a href="#yourEvents"><button id="submit-input" type="button" class="btn btn-white"><i class="fas fa-play"></i></button></a>
-							</div>
 							</div>
 							</div>
 							</form>
@@ -85,6 +90,26 @@
 						</div>
 						</div>
 						<br>
+<!-- ADDED GENRE OPTION -->
+						<div class="row">
+						<div class="col">
+							<select id="genre-input" class="form-control">
+							<option selected>Genre</option>
+							<option>Pop</option>
+							<option>Rock</option>
+							<option>Hip Hop</option>
+							<option>Electronic</option>
+							<option>R&B</option>
+							<option>Alternative</option>
+							<option>Metal</option>
+							<option>Punk</option>
+							<option>Country</option>
+							<option>Jazz</option>
+							<option>Funk</option>
+							</select>
+						</div>
+						</div>
+						<br>
 						<div class="row">
 						<div class="col">
 						<a href="#home"><button type="button" class="btn btn-white btn-block">enter location <i class="fas fa-arrow-alt-circle-up"></i></button></a>
@@ -95,10 +120,10 @@
 					</div>
 				</div>
 				<div class="col-md-9">
-					<div class="card" id="mainEvents">
+					<div class="card mainEvents">
 					<div class="card-body text-center">
 					<div class="row" id="eventResults">
-						<p class="h1 display-1">Enter your location to see who's playing near you.</p>
+						<div id="events-div"><p class="h1 display-1">Enter your location to see who's playing near you. Enter your location to see who's playing near you. Enter your location to see who's playing near you.</p></div>
 					</div>
 					</div>
 					</div>
@@ -106,74 +131,44 @@
 			</div>
 		</div>
 
-		<div id="upcoming" class="jumbotron jumbotron-fluid">
-			<div class="container">
-				<div id="upcomingBrand" class="jumbotron text-light">
-					<p class="h1" style="font-family: 'Lobster', cursive;">upc<i class="fas fa-headphones"></i>ming events</p>
+		<div id="yourArtist" class="jumbotron jumbotron-fluid">
+			<div class="row">
+				<div class="col-md-3">
+				<div class="card sidebarArtist">
+				<div class="card-body text-center">
+					<p class="h1 yourArtist" style="font-family: 'Lobster', cursive;">y<i class="fas fa-headphones"></i>ur artist</p>
 					<hr class="my-4">
-<form id="artist-form">
-<div class="form-row">							
-<div class="form-group col-md-3">
-<div class="card">
-<div class="card-body">
-<label for="date-input">Date</label><br>
-<input class="form-control" type="date" id="date-input">
-</div>
-</div>
-</div>
-<div class="form-group col-md-3">
-<div class="card">
-<div class="card-body">
-<label for="area-input">Location</label><br>
-<input class="form-control" type="text" id="area-input">
-</div>
-</div>
-</div>
-<div class="form-group col-md-3">
-<div class="card">
-<div class="card-body">
-<label for="genre-input">Genre</label><br>
-<select id="genre-input" class="form-control">
-<option selected>All</option>
-<option>Pop</option>
-<option>Rock</option>
-<option>Hip Hop</option>
-<option>Electronic</option>
-<option>R&B</option>
-<option>Alternative</option>
-<option>Metal</option>
-<option>Punk</option>
-<option>Country</option>
-<option>Jazz</option>
-<option>Funk</option>
-</select>
-</div>
-</div>
-</div>
-<div class="form-group col-md-3">
-<div class="card">
-<div class="card-body">
-<label for="number-input">Number of results</label>
-<input class="form-control" type="number" id="number-input">
-</div>
-</div>
-</div>
-<button type="submit" class="btn btn-default">Go!</button>
-</div>
-</form>
-
-					<br>
-					<br>
-					<p class="lead text-white">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-					<br>
-					<p class="lead text-warning">here maybe is where we can put a "date" option for the user. we can show up to 5 days ahead as a start, then give them option for the desired date with the datepicker.</p>
+					<form>
+						<div class="row">
+						<div class="col">
+							<input id="aritst-input" type="text" class="form-control" placeholder="Artist Name">
+						</div>
+						</div>
+						<br>
+						<div class="row">
+						<div class="col">
+							<button id="select-artist" type="button" class="btn btn-block btn-white">submit  <i class="fas fa-play"></i></button>
+						</div>
+						</div>
+					</form>
+				</div>
+				</div>
+				</div>
+				<div class="col-md-9">
+					<div class="card mainArtist">
+					<div class="card-body text-center">
+					<div class="row" id="artistResults">
+						<div id="artist-div"><p class="h1 display-1">Enter aritst's name to see what they are up to. Enter aritst name to see what they are up to. Enter aritst name to see what they are up to.</p></div>
+					</div>
+					</div>
+					</div>
 				</div>
 			</div>
 		</div>
-
-		<div id="search" class="jumbotron jumbotron-fluid bg-white">
+<!--
+		<div id="#" class="jumbotron jumbotron-fluid bg-white">
 			<div class="container">
-				<div id="searchBrand" class="jumbotron text-light">
+				<div id="#" class="jumbotron text-light">
 					<p class="h1" style="font-family: 'Lobster', cursive;">y<i class="fas fa-headphones"></i>ur artist</p>
 					<hr class="my-4">						
 					<br>
@@ -183,69 +178,9 @@
 					<p class="lead text-warning">here is when they just wanna search for a certian artist. we could just simply use bands in town here.</p>
 				</div>
 			</div>
-		</div>
+		</div> -->
 
-			<!--<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-			<div class="navbar-nav text-center">
-				<form id="artist-form">
-				<div class="form-row">
-								
-                <div class="form-group col-md-3">
-                  <div class="card">
-                    <div class="card-body">
-						<label for="date-input">Date</label><br>
-						<input class="form-control" type="date" id="date-input">
-                    </div>
-                  </div>
-                </div>
-					      <div class="form-group col-md-3">
-                  <div class="card">
-                    <div class="card-body">
-			      					<label for="area-input">Location</label><br>
-			      					<input class="form-control" type="text" id="area-input">
-			      				</div>
-                  </div>
-                </div>
-			      		<div class="form-group col-md-3">
-                  <div class="card">
-                    <div class="card-body">
-                      <label for="genre-input">Genre</label><br>
-											<select id="genre-input" class="form-control">
-												<option selected>All</option>
-												<option>Pop</option>
-												<option>Rock</option>
-												<option>Hip Hop</option>
-												<option>Electronic</option>
-												<option>R&B</option>
-												<option>Alternative</option>
-												<option>Metal</option>
-												<option>Punk</option>
-												<option>Country</option>
-												<option>Jazz</option>
-												<option>Funk</option>
-											</select>
-										</div>
-                  </div>
-                </div>
-			      		<div class="form-group col-md-3">
-                  <div class="card">
-                    <div class="card-body">
-											<label for="number-input">Number of results</label>
-											<input class="form-control" type="number" id="number-input">
-										</div>
-									</div>
-                </div>
-								<button type="submit" class="btn btn-default">Go!</button>
-              </div>
-            </form>	
-          </div>
-        </div>-->	
-      
-
-		
-
-
-		
+			
 	<nav class="navbar navbar-light bg-light text-center">
 		<div class="container">
 			<p>copyright &copy; 2018 v<i class="fas fa-headphones"></i>caLocal</p>
