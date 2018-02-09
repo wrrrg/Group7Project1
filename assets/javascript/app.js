@@ -1,3 +1,28 @@
+// event listeners jquery
+
+$(document).ready(function() {
+  // ask for GPS permission and use that
+  $("#use-gps-button").on("click", function(){
+      useGPS = true;
+      googleMaps.getLocation();
+      });
+  // use the search field
+
+  $("#submit-input").on("click", function(){
+    useGPS = false;
+    googleMaps.searchAddress();
+  })
+  $("#area-input").keypress( function(e){
+    var key = e.which;
+
+    if((key) == 13) {
+      $("#submit-input").click();
+  }});
+})
+
+
+
+
 function searchBandsInTown(artist) {
     // Querying the bandsintown api for the selected artist, the ?app_id parameter is required, but can equal anything
     var queryURL = "https://rest.bandsintown.com/artists/" + artist + "?app_id=codingbootcamp";
@@ -44,6 +69,9 @@ var apiKeyGoogleDirections = "AIzaSyCnd-IWrCKGW-QzK2iM3opYUL7Z_0gaR3A";
 // google maps distance matrix api AIzaSyC4VTDL8HDsd-eNs_89_lBzicvSKZAaWa0
 var apiKeyGoogleMatrix = 'AIzaSyC4VTDL8HDsd-eNs_89_lBzicvSKZAaWa0';
 
+// geocoding
+
+var apiKeyGoogleGeocode = 'AIzaSyBmoewIZls4DAoeu04S_WZ8r0dJ8bgTDek';
 // Global initialized Variables
 //  - Songkick Variables-
 var cityGPS = '';
@@ -52,7 +80,14 @@ var destinationArr = [];
 
 //  - Google Maps Variables -
 var userGPS = {};
+  // from search box instead of location services
+var userLocation = {};
+var userAddress = '';
 var distanceResults = [];
+
+//  true false var for using GPS or address searching
+
+var useGPS = false;
 
 
 // google maps object for function storage
@@ -62,7 +97,7 @@ var googleMaps = {
   // Testing geolocation
   getLocation: function(){
     if(navigator.geolocation){
-        navigator.geolocation.getCurrentPosition(googleMaps.showPosition);
+        navigator.geolocation.getCurrentPosition(googleMaps.success)
     }else{
       console.log("Location tracking not possible")
     };
@@ -74,9 +109,10 @@ var googleMaps = {
     //   geo.onerror = event => console.error(event.error.name, event.error.message);
   },
 
-  // This function is called automatically by the geolocation function to report the coordinates. Currently it saves to a global var and console.logs them.
+  // If we successfully get geolocation, this function automatically creates an eventResults array for the user's GPS, a destination array, and adds the durations/distances to the objects, then pulls them down.
 
-    showPosition: function(position){
+    success: function(position, ){
+
       userGPS = {
         lat: position.coords.latitude,
         lng: position.coords.longitude,
@@ -84,8 +120,46 @@ var googleMaps = {
         songKickStr:  position.coords.latitude + "," + position.coords.longitude,
         googleStr: position.coords.latitude + "%2C" + position.coords.longitude
       };
-      // console.log("Latitude: " + position.coords.latitude "Longitude:" + position.coords.longitude );
+
+      console.log("The string for songkick is: " + userGPS.songKickStr + " and the string for Google is: " + userGPS.googleStr);
+
+      // This calls our findEvents function (which calls our findDistance function as well) to automatically get our array of events with necessary data upon finding the location.
+      songkick.findEvents(userGPS.songKickStr);
+
     },
+
+
+  // A function for when we need to search by the user's text field address input, since GPS was denied
+
+  searchAddress: function(){
+    var userAddress = $("#area-input").val();
+    var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + userAddress + "&key=" + apiKeyGoogleGeocode;
+
+
+    $.ajax({
+      url: queryURL,
+      method: 'GET'
+    }).then(function(response) {
+        console.log(response);
+
+        userLocation = {
+          lat: response["results"]["0"]["geometry"]["location"]["lat"],
+          lng: response["results"]["0"]["geometry"]["location"]["lng"],
+          name: response["results"]["0"]["formatted_address"],
+
+          songKickStr: response["results"]["0"]["geometry"]["location"]["lat"] + "," + response["results"]["0"]["geometry"]["location"]["lng"],
+
+          googleStr: response["results"]["0"]["geometry"]["location"]["lat"] + "%2C" + response["results"]["0"]["geometry"]["location"]["lng"]
+        };
+
+        songkick.findEvents(userLocation.songKickStr);
+        console.log(userLocation);
+
+
+
+  });
+},
+
 
   // Update the global array of destiations with lng/lat/name objects using an array of events
   createDestinationArr: function(eventArr){
@@ -104,6 +178,8 @@ var googleMaps = {
   },
   // Queries Google Maps for distances between origin and all destinations in the given destination Array
   findDistance: function(origin, destinationArr){
+
+
 
       destinations = "";
 
@@ -154,9 +230,9 @@ var googleMaps = {
 
           for (var i = 0; i < distanceResults.length; i++) {
             destinationArr[i]["distance"] = distanceResults[i]["distance"];
-            eventResults[i]["distance"] = distanceResults[i]["distance"];
+            // eventResults[i]["distance"] = distanceResults[i]["distance"];
             destinationArr[i]["duration"] = distanceResults[i]["duration"];
-            eventResults[i]["duration"] = distanceResults[i]["duration"];
+            // eventResults[i]["duration"] = distanceResults[i]["duration"];
           };
 
 
@@ -224,6 +300,13 @@ var songkick = {
         var eventArr = response["resultsPage"]["results"]["event"];
 
         eventResults = [];
+        source = '';
+
+        if(useGPS) {
+          source = userGPS.googleStr
+        } else {
+          source = userLocation.googleStr
+        }
 
         for (var i = 0; i < eventArr.length; i++) {
           var eventObj = {};
@@ -241,10 +324,11 @@ var songkick = {
 
 
         };
-
+        googleMaps.findDistance(source, eventResults);
         console.log(eventResults);
 
       });
+
       }
 
 };
@@ -254,6 +338,7 @@ var songkick = {
 //
 // songkick.findCityGps("austin");
 // disable this later - only for testing functions
+
 
 
 // songkick.findEvents(austinGPS);
