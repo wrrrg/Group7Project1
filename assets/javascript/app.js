@@ -80,9 +80,12 @@ var destinationArr = [];
 
 //  - Google Maps Variables -
 var userGPS = {};
+<<<<<<< HEAD
   // from search box instead of location services
 var userLocation = {};
 var userAddress = '';
+=======
+>>>>>>> ca0645a045a464b6813b397fb6762fb13217589b
 var distanceResults = [];
 
 //  true false var for using GPS or address searching
@@ -97,7 +100,11 @@ var googleMaps = {
   // Testing geolocation
   getLocation: function(){
     if(navigator.geolocation){
+<<<<<<< HEAD
         navigator.geolocation.getCurrentPosition(googleMaps.success)
+=======
+        navigator.geolocation.getCurrentPosition(googleMaps.showPosition);
+>>>>>>> ca0645a045a464b6813b397fb6762fb13217589b
     }else{
       console.log("Location tracking not possible")
     };
@@ -109,10 +116,16 @@ var googleMaps = {
     //   geo.onerror = event => console.error(event.error.name, event.error.message);
   },
 
+<<<<<<< HEAD
   // If we successfully get geolocation, this function automatically creates an eventResults array for the user's GPS, a destination array, and adds the durations/distances to the objects, then pulls them down.
 
     success: function(position, ){
 
+=======
+  // This function is called automatically by the geolocation function to report the coordinates. Currently it saves to a global var and console.logs them.
+
+    showPosition: function(position){
+>>>>>>> ca0645a045a464b6813b397fb6762fb13217589b
       userGPS = {
         lat: position.coords.latitude,
         lng: position.coords.longitude,
@@ -120,6 +133,7 @@ var googleMaps = {
         songKickStr:  position.coords.latitude + "," + position.coords.longitude,
         googleStr: position.coords.latitude + "%2C" + position.coords.longitude
       };
+<<<<<<< HEAD
 
       console.log("The string for songkick is: " + userGPS.songKickStr + " and the string for Google is: " + userGPS.googleStr);
 
@@ -161,6 +175,11 @@ var googleMaps = {
 },
 
 
+=======
+      // console.log("Latitude: " + position.coords.latitude "Longitude:" + position.coords.longitude );
+    },
+
+>>>>>>> ca0645a045a464b6813b397fb6762fb13217589b
   // Update the global array of destiations with lng/lat/name objects using an array of events
   createDestinationArr: function(eventArr){
     destinationArr = [];
@@ -328,7 +347,10 @@ var songkick = {
         console.log(eventResults);
 
       });
+<<<<<<< HEAD
 
+=======
+>>>>>>> ca0645a045a464b6813b397fb6762fb13217589b
       }
 
 };
@@ -341,4 +363,8 @@ var songkick = {
 
 
 
+<<<<<<< HEAD
+=======
+songkick.findCityGps("austin");
+>>>>>>> ca0645a045a464b6813b397fb6762fb13217589b
 // songkick.findEvents(austinGPS);
