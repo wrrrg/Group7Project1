@@ -113,6 +113,7 @@ var googleMaps = {
 
     success: function(position, ){
 
+
       userGPS = {
         lat: position.coords.latitude,
         lng: position.coords.longitude,
@@ -159,7 +160,6 @@ var googleMaps = {
 
   });
 },
-
 
   // Update the global array of destiations with lng/lat/name objects using an array of events
   createDestinationArr: function(eventArr){
@@ -329,9 +329,7 @@ var songkick = {
 
       });
 
-      }
-
-};
+}};
 
 // Test Variables
 // var austinGPS = "30.3005,-97.7472";
