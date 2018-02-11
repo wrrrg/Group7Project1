@@ -21,7 +21,7 @@ h1 {
 
 #home {
     background: url(http://static.tumblr.com/7b37633d29d9aaca9828b5132273cdf1/sy59fz4/1linmyvvt/tumblr_static_4y2skv97m24ogs84wc40sccso.jpg);
-    min-height: 650px;
+    min-height: 700px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -39,7 +39,7 @@ h1 {
 
 #yourEvents {
     background-color: black;
-    min-height: 650px;
+    min-height: 700px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -47,13 +47,21 @@ h1 {
     margin-bottom: -30px;
 }
 
-.sidebarEvents, #mainEvents {
-    background-color: black;
+.sidebarEvents {
+    background: black;
+    border: none;
 }
 
-#upcoming {
+.mainEvents {
+    background-color: black;
+    border: none;
+    max-height: 600px;
+    overflow: auto;
+}
+
+#yourArtist {
     background: url(https://static.tumblr.com/106bc3193f8a144520727778b74cde06/dr5oxct/4Apnuivar/tumblr_static_tumblr_static_2171n0cjqjogggggoco0g8cgw_640.png);
-    min-height: 650px;
+    min-height: 700px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -61,33 +69,15 @@ h1 {
     margin-bottom: -30px;
 }
 
-#upcomingBrand {
-    height: 510px;
-    margin-top: 40px;
-    background: rgb(255, 255, 255);
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid #CBA135;
+.sidebarArtist {
+    background: none;
+    border: none;
 }
 
-#search {
-    /*background-color: white;*/
-    min-height: 650px;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-bottom: -30px;
+.mainArtist {
+    background: none;
+    border: none;
+    max-height: 600px;
+    overflow: auto;
 }
 
-#searchBrand {
-    height: 510px;
-    margin-top: 40px;
-    background-color: black;
-    border: 1px solid #CBA135;
-}
-/* sample */
-.img-thumbnail {
-    height: 175px;
-    width: 175px;
-    margin: 15px;
-}
