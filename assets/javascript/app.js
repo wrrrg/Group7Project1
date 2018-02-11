@@ -11,7 +11,7 @@ $(document).ready(function() {
   $("#submit-input").on("click", function(){
     useGPS = false;
     googleMaps.searchAddress();
-  })
+  });
   $("#area-input").keypress( function(e){
     var key = e.which;
 
@@ -46,15 +46,16 @@ function searchBandsInTown(artist) {
   }
   // On input to search of artist, queries possible artists
   $("#artist-input").keyup(function(event) {
-    if (event.keyCode === 13) {
-      $("#input-artist").click();
-  };
+    
     // Preventing the button from trying to submit the form
-    event.preventDefault();
+    
     // Storing the artist name
     var inputArtist = $("#artist-input").val().trim();
     // Running the searchBandsInTown function (passing in the artist as an argument)
-
+    if (event.keyCode == 13) {
+      event.preventDefault();
+      $("#select-artist").click();
+      };
     
     searchBandsInTown(inputArtist);
   });
