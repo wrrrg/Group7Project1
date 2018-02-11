@@ -44,13 +44,18 @@ function searchBandsInTown(artist) {
       $("#artist-div").append(artistURL, artistImage, trackerCount, upcomingEvents, goToArtist);
     });
   }
-  // Event handler for user clicking the select-artist button
-  $("#select-artist").on("click", function(event) {
+  // On input to search of artist, queries possible artists
+  $("#artist-input").keyup(function(event) {
+    if (event.keyCode === 13) {
+      $("#input-artist").click();
+  };
     // Preventing the button from trying to submit the form
     event.preventDefault();
     // Storing the artist name
     var inputArtist = $("#artist-input").val().trim();
     // Running the searchBandsInTown function (passing in the artist as an argument)
+
+    
     searchBandsInTown(inputArtist);
   });
 
