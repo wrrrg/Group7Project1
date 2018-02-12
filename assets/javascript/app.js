@@ -5,7 +5,7 @@ $(document).ready(function() {
   $("#use-gps-button").on("click", function(){
       useGPS = true;
       googleMaps.getLocation();
-      });
+    })
   // use the search field
 
   $("#submit-input").on("click", function(){
@@ -46,9 +46,9 @@ function searchBandsInTown(artist) {
   }
   // On input to search of artist, queries possible artists
   $("#artist-input").keyup(function(event) {
-    
+
     // Preventing the button from trying to submit the form
-    
+
     // Storing the artist name
     var inputArtist = $("#artist-input").val().trim();
     // Running the searchBandsInTown function (passing in the artist as an argument)
@@ -56,7 +56,7 @@ function searchBandsInTown(artist) {
       event.preventDefault();
       $("#select-artist").click();
       };
-    
+
     searchBandsInTown(inputArtist);
   });
 
@@ -103,7 +103,8 @@ var googleMaps = {
   // Testing geolocation
   getLocation: function(){
     if(navigator.geolocation){
-        navigator.geolocation.getCurrentPosition(googleMaps.success)
+        navigator.geolocation.getCurrentPosition(googleMaps.success);
+        sortDistance(eventResults);
     }else{
       console.log("Location tracking not possible")
     };
@@ -241,8 +242,6 @@ var googleMaps = {
             // eventResults[i]["duration"] = distanceResults[i]["duration"];
           };
 
-
-
         });
 
     },
@@ -336,6 +335,24 @@ var songkick = {
       });
 
 }};
+// variable for the functions that populate our results
+
+sortDistance = function(array){
+    array.sort(function(a, b) {
+      return parseFloat(a.distance.text) - parseFloat(b.distance.text);
+    });
+    console.log(array);
+  };
+sortDuration = function(array){
+    array.sort(function(a, b) {
+      return parseFloat(a.duration.text) - parseFloat(b.duration.text);
+      });
+    };
+sortStartTime = function(array){
+      array.sort(function(a, b) {
+        return parseFloat(a.startTime) - parseFloat(b.startTime);
+      });
+    };
 
 // Test Variables
 // var austinGPS = "30.3005,-97.7472";
