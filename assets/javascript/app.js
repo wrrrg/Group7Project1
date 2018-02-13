@@ -34,7 +34,20 @@ $(document).ready(function() {
     if((key) === 13) {
       $("#submit-input").click();
   }});
-})
+  });
+
+
+
+
+$(document).on("click", '.artist-click', function(){
+
+    var artistQuery = this.text;
+    console.log(artistQuery);
+    $("#artist-input").val(artistQuery);
+
+    searchBandsInTown(artistQuery);
+  });
+
 
 
 
@@ -74,6 +87,14 @@ function searchBandsInTown(artist) {
       };
 
     searchBandsInTown(inputArtist);
+  });
+
+  $(".artist-click").on("click", function(){
+    var artistQuery = this.text;
+    console.log(artistQuery);
+    $("#artist-input").val(artistQuery);
+
+    searchBandsInTown(artistQuery);
   });
 
 
@@ -393,6 +414,19 @@ appendEvents = function(eventResults){
   // Loop through the results
   for (var i=0; i<eventResults.length; i++) {
 
+    var artistArr = eventResults[i]["performers"];
+
+    var artistList = ''
+
+    for (var j = 0; j < artistArr.length; j++) {
+           var artist = artistArr[j]["displayName"];
+           var artistName = "<span class='artist-listing'><a href='#yourArtist' class='artist-click'>" + artist + "</a></span>";
+
+           artistList = artistList + artistName
+    };
+
+    console.log(artistList);
+
 
 
     var name = eventResults[i]["name"],
@@ -429,6 +463,7 @@ appendEvents = function(eventResults){
     eventDiv.append(start);
     eventDiv.append(songkickLink);
     eventDiv.append(address);
+    eventDiv.append(artistList);
 
 
     // prepend the giphyDiv to the main images div
