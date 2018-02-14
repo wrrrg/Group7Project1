@@ -1,3 +1,25 @@
+//  Dear Everyone Reading this - this is super busted right now, but it works. Basically the following functions have to happen in order for a sorted list of events based on the user's location to populate correctly
+
+// 1) the user's location must be determined, either via location permissions or the address they enter in the location search.
+// either of these functions (googleMaps.getLocation() or googleMaps.searchAddress()  ) will then use songkick.findEvents to track down the events on today's date near that area, capping it at 15 events. To do this, both the getLocation and the searchAddress functions will call songkick.findEvents at the end of their functions.
+
+// Songkick then uses these new found events to query google maps to find out how far away each of them are. To do this, songkick.findEvents calls googleMaps.findDistance() at the end of it.
+
+// We then want to sort the array so that the shortest distance appears first. We do this at the end of googleMaps.findDistance() by calling the sortDistance() function.
+
+// We then want to append these results to the events-div. We do this by putting the appendEvents() function at the end of sortDistance().
+
+// I know this is a super stupid way to do this, but I do not understand callbacks. If anyone can refractor, please please do.
+function openNav() {
+    document.getElementById("navSearch").style.height = "39%";
+}
+
+function closeNav() {
+    document.getElementById("navSearch").style.height = "0%";
+}
+
+
+
 // event listeners jquery
 
 $(document).ready(function() {
@@ -5,20 +27,33 @@ $(document).ready(function() {
   $("#use-gps-button").on("click", function(){
       useGPS = true;
       googleMaps.getLocation();
-      });
+    })
   // use the search field
 
   $("#submit-input").on("click", function(){
     useGPS = false;
     googleMaps.searchAddress();
-  })
+  });
   $("#area-input").keypress( function(e){
     var key = e.which;
 
-    if((key) == 13) {
+    if((key) === 13) {
       $("#submit-input").click();
   }});
-})
+  });
+
+
+
+
+$(document).on("click", '.artist-click', function(){
+
+    var artistQuery = this.text;
+    console.log(artistQuery);
+    $("#artist-input").val(artistQuery);
+
+    searchBandsInTown(artistQuery);
+  });
+
 
 
 
@@ -44,14 +79,28 @@ function searchBandsInTown(artist) {
       $("#artist-div").append(artistURL, artistImage, trackerCount, upcomingEvents, goToArtist);
     });
   }
-  // Event handler for user clicking the select-artist button
-  $("#select-artist").on("click", function(event) {
+  // On input to search of artist, queries possible artists
+  $("#artist-input").keyup(function(event) {
+
     // Preventing the button from trying to submit the form
-    event.preventDefault();
+
     // Storing the artist name
     var inputArtist = $("#artist-input").val().trim();
     // Running the searchBandsInTown function (passing in the artist as an argument)
+    if (event.keyCode == 13) {
+      event.preventDefault();
+      $("#select-artist").click();
+      };
+
     searchBandsInTown(inputArtist);
+  });
+
+  $(".artist-click").on("click", function(){
+    var artistQuery = this.text;
+    console.log(artistQuery);
+    $("#artist-input").val(artistQuery);
+
+    searchBandsInTown(artistQuery);
   });
 
 
@@ -80,12 +129,9 @@ var destinationArr = [];
 
 //  - Google Maps Variables -
 var userGPS = {};
-<<<<<<< HEAD
   // from search box instead of location services
 var userLocation = {};
 var userAddress = '';
-=======
->>>>>>> ca0645a045a464b6813b397fb6762fb13217589b
 var distanceResults = [];
 
 //  true false var for using GPS or address searching
@@ -100,11 +146,8 @@ var googleMaps = {
   // Testing geolocation
   getLocation: function(){
     if(navigator.geolocation){
-<<<<<<< HEAD
-        navigator.geolocation.getCurrentPosition(googleMaps.success)
-=======
-        navigator.geolocation.getCurrentPosition(googleMaps.showPosition);
->>>>>>> ca0645a045a464b6813b397fb6762fb13217589b
+        navigator.geolocation.getCurrentPosition(googleMaps.success);
+        sortDistance(eventResults);
     }else{
       console.log("Location tracking not possible")
     };
@@ -116,16 +159,11 @@ var googleMaps = {
     //   geo.onerror = event => console.error(event.error.name, event.error.message);
   },
 
-<<<<<<< HEAD
   // If we successfully get geolocation, this function automatically creates an eventResults array for the user's GPS, a destination array, and adds the durations/distances to the objects, then pulls them down.
 
     success: function(position, ){
 
-=======
-  // This function is called automatically by the geolocation function to report the coordinates. Currently it saves to a global var and console.logs them.
 
-    showPosition: function(position){
->>>>>>> ca0645a045a464b6813b397fb6762fb13217589b
       userGPS = {
         lat: position.coords.latitude,
         lng: position.coords.longitude,
@@ -133,7 +171,6 @@ var googleMaps = {
         songKickStr:  position.coords.latitude + "," + position.coords.longitude,
         googleStr: position.coords.latitude + "%2C" + position.coords.longitude
       };
-<<<<<<< HEAD
 
       console.log("The string for songkick is: " + userGPS.songKickStr + " and the string for Google is: " + userGPS.googleStr);
 
@@ -174,12 +211,6 @@ var googleMaps = {
   });
 },
 
-
-=======
-      // console.log("Latitude: " + position.coords.latitude "Longitude:" + position.coords.longitude );
-    },
-
->>>>>>> ca0645a045a464b6813b397fb6762fb13217589b
   // Update the global array of destiations with lng/lat/name objects using an array of events
   createDestinationArr: function(eventArr){
     destinationArr = [];
@@ -243,6 +274,7 @@ var googleMaps = {
             var distanceObj = {};
             distanceObj.distance = distanceArr[i]["distance"];
             distanceObj.duration = distanceArr[i]["duration"];
+            distanceObj.address = response["destination_addresses"][i];
             distanceResults.push(distanceObj);
           };
       // add the distance and duration properties to our destiationArr and eventResults array items
@@ -252,8 +284,11 @@ var googleMaps = {
             // eventResults[i]["distance"] = distanceResults[i]["distance"];
             destinationArr[i]["duration"] = distanceResults[i]["duration"];
             // eventResults[i]["duration"] = distanceResults[i]["duration"];
+            destinationArr[i]["address"] = distanceResults[i]["address"];
           };
 
+        // sortDistance(distanceResults);
+        sortDistance(destinationArr);
 
 
         });
@@ -347,14 +382,100 @@ var songkick = {
         console.log(eventResults);
 
       });
-<<<<<<< HEAD
 
-=======
->>>>>>> ca0645a045a464b6813b397fb6762fb13217589b
-      }
+}};
+// variable for the functions that populate our results
 
-};
+sortDistance = function(array){
+    array.sort(function(a, b) {
+      return parseFloat(a.distance.text) - parseFloat(b.distance.text);
+    });
+    console.log(array);
+    console.log("sorted!");
+    appendEvents(eventResults);
+  };
+sortDuration = function(array){
+    array.sort(function(a, b) {
+      return parseFloat(a.duration.text) - parseFloat(b.duration.text);
+      });
+    };
+sortStartTime = function(array){
+      array.sort(function(a, b) {
+        return parseFloat(a.startTime) - parseFloat(b.startTime);
+      });
+    };
 
+appendEvents = function(eventResults){
+
+  // checks if we're using userGPS or userLocation for our links
+  var origin = '';
+  if(useGPS){
+    origin = userGPS.googleStr;
+  } else {
+    origin = userLocation.googleStr;
+  };
+
+  $("#events-div").empty();
+
+  // Loop through the results
+  for (var i=0; i<eventResults.length; i++) {
+
+    var artistArr = eventResults[i]["performers"];
+
+    var artistList = ''
+
+    for (var j = 0; j < artistArr.length; j++) {
+           var artist = artistArr[j]["displayName"];
+           var artistName = "<span class='artist-listing'><a href='#yourArtist' class='artist-click'>" + artist + "</a></span>";
+
+           artistList = artistList + artistName
+    };
+
+    console.log(artistList);
+
+
+
+    var name = eventResults[i]["name"],
+        link = eventResults[i]["uri"],
+        eventDist = eventResults[i]["distance"]["text"],
+        eventStart = eventResults[i]["startTime"],
+        address = eventResults[i]["address"];
+
+    // make the div element
+    var eventDiv = $("<div class='event-div'>");
+    // Event Name
+    var eventName = $("<span class='name'>").text(name);
+    //  distance to the event
+    var distance = $("<span class='distance'>").text(eventDist);
+    // start time (military for now, might change with moment)
+    var start = $("<span class='start'>").text(eventStart);
+    // link that opens google maps with directions
+    var addressLink = "https://www.google.com/maps/dir/?api=1&origin=" + origin + "&destination=" +  eventResults[i]["lat"] + "%2C" + eventResults[i]["lng"];
+
+    // uses the addressLink as the href= and the name of the address as the text
+
+    var address = $("<a class='address'>").text(address).attr("href", addressLink);
+
+
+
+
+    // More Details Link (Songkick)
+    var songkickLink = $("<a href=" + link + ">More Details</a>");
+
+
+    // Append paragraph and image to div
+    eventDiv.append(eventName);
+    eventDiv.append(distance);
+    eventDiv.append(start);
+    eventDiv.append(songkickLink);
+    eventDiv.append(address);
+    eventDiv.append(artistList);
+
+
+    // prepend the giphyDiv to the main images div
+    $("#events-div").append(eventDiv);
+  };
+}
 // Test Variables
 // var austinGPS = "30.3005,-97.7472";
 //
@@ -363,8 +484,4 @@ var songkick = {
 
 
 
-<<<<<<< HEAD
-=======
-songkick.findCityGps("austin");
->>>>>>> ca0645a045a464b6813b397fb6762fb13217589b
 // songkick.findEvents(austinGPS);

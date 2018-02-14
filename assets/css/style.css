@@ -1,5 +1,55 @@
 * {
     box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+    color: #CBA135;
+}
+
+body {
+    background-color: #fff;
+    text-align: center;
+}
+
+#logo {
+    margin-bottom: -1px;
+    background: url(http://static.tumblr.com/7b37633d29d9aaca9828b5132273cdf1/sy59fz4/1linmyvvt/tumblr_static_4y2skv97m24ogs84wc40sccso.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sticky-top {
+    background-color: black;
+    box-shadow: 0 8px 6px -6px grey;
+}
+
+.overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(0, 0, 0);
+    /*background-color: rgba(0, 0, 0, 0.9);*/
+    overflow-y: hidden;
+    transition: 0.5s;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay {overflow-y: auto;}
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+#navSearch {
+    box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+}
+/** {
+    box-sizing: border-box;
     color: #CBA135;
 }
 
@@ -59,6 +109,10 @@ h1 {
     overflow: auto;
 }
 
+.name {
+    font-family: 'Lobster', cursive;
+}
+
 #yourArtist {
     background: url(https://static.tumblr.com/106bc3193f8a144520727778b74cde06/dr5oxct/4Apnuivar/tumblr_static_tumblr_static_2171n0cjqjogggggoco0g8cgw_640.png);
     min-height: 700px;
@@ -81,3 +135,10 @@ h1 {
     overflow: auto;
 }
 
+#artist-div {
+    background: none;
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+*/

@@ -17,8 +17,56 @@
 	</head>
 
 	<body style="font-family: 'Raleway', sans-serif">
-<!--NAVBAR. (PAGE LINKS) HOME/YOUR ARTIST/SEARCH ARTIST-->
-		<nav class="navbar fixed-top navbar-light bg-light">
+<!--LOGO-->
+		<div id="logo" class="jumbotron jumbotron-fluid bg-light">
+			<div class="container text-center">
+			    <h1 class="display-3" style="font-family: 'Lobster', cursive;">v<i class="fas fa-headphones"></i>caLocal</h1>
+				<hr class="my-4">
+				<p class="lead">Your best bud on searching for artists' hub.</p>
+				<br>
+				<p class="h3">
+					<span style="font-family: 'Lobster', cursive;">L</span> og .
+					<span style="font-family: 'Lobster', cursive;">L</span> isten .
+					<span style="font-family: 'Lobster', cursive;">L</span> ive
+				</p>
+			</div>
+		</div>
+<!-- SEARCH ICON -->
+		<div class="sticky-top card-footer text-center border-0">
+			<a onclick="openNav()" class="navbar-brand" href="#navSearch"><i class="fas fa-search"></i></a>
+		</div>
+<!-- OVERLAY SEARCH / FORM-->
+		<div id="navSearch" class="overlay">
+			<div class="card-header text-center border-0">
+				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a>
+			</div>
+		<div class="card-body container text-center">
+	    	<form>
+				<div class="row">
+				<div class="col">
+	                <button class="btn btn-light btn-block" type="button" name="button" id="use-gps-button">Find Events Near Me</button>
+	            </div>
+	            </div>
+	            <br>
+	            <i class="fas fa-ellipsis-h"></i>
+				<div class="form-row">
+				<div class="form-group col-md-6">
+					<input id="area-input" type="text" class="form-control" placeholder="Enter Location: Ex. '6th St Austin Texas'">
+				</div>
+				<div class="form group col-md-6">
+					<input id="artist-input" type="text" class="form-control" placeholder="Artist Name">
+				</div>
+				</div>
+				<br>
+				<div class="row">
+				<div class="col">
+					<a href="#yourEvents"><button id="submit-input" type="button" class="btn btn-white btn-block"><i class="fas fa-play"></i></button></a>
+				</div>
+				</div>
+			</form>
+		</div>
+		</div>
+		<!-- <nav class="navbar fixed-top navbar-light bg-light">
     		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<a class="navbar-brand" href="#"><h1><i class="fas fa-headphones"></i></h1></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,14 +75,13 @@
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     			<div class="navbar-nav">
       				<a class="nav-item nav-link" href="#yourEvents"><h1>your events</h1></a>
-      				<!--<a class="nav-item nav-link" href="#upcoming"><h1>upcoming</h1></a>-->
       				<a class="nav-item nav-link" href="#yourArtist"><h1><i class="fas fa-search"></i> your artist</h1></a>
     			</div>
   			</div>
 			</nav>
-		</nav>
+		</nav> -->
 
-		<div id="home" class="jumbotron jumbotron-fluid">
+		<!-- <div id="home" class="jumbotron jumbotron-fluid">
 			<div class="container">
 				<div id="homeBrand" class="jumbotron">
 					<div class="row">
@@ -57,6 +104,7 @@
 							<form>
 							<div class="row">
 							<div class="col">
+
                 				<button class="btn btn-white btn-block" type="button" name="button" id="use-gps-button">Find Events Near Me</button>
                 			</div>
                 			</div>
@@ -64,6 +112,7 @@
 							<div class="form-row">
 							<div class="form-group col-md-11">
 								<input id="area-input" type="text" class="form-control" placeholder="Enter Location: Ex. '6th St Austin Texas'">
+
 							</div>
 							<div class="col-md-1">
 								<a href="#yourEvents"><button id="submit-input" type="button" class="btn btn-white"><i class="fas fa-play"></i></button></a>
@@ -74,9 +123,9 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 
-		<div id="yourEvents" class="jumbotron jumbotron-fluid">
+<!-- 		<div id="yourEvents" class="jumbotron jumbotron-fluid">
 			<div class="row">
 				<div class="col-md-3">
 					<div class="card sidebarEvents">
@@ -90,7 +139,7 @@
 						</div>
 						</div>
 						<br>
-<!-- ADDED GENRE OPTION -->
+
 						<div class="row">
 						<div class="col">
 							<select id="genre-input" class="form-control">
@@ -118,18 +167,17 @@
 						</form>
 					</div>
 					</div>
-				</div>
-				<div class="col-md-9">
-					<div class="card mainEvents">
-					<div class="card-body text-center">
-					<div class="row" id="eventResults">
-						<div id="events-div"><p class="h1 display-1">Enter your location to see who's playing near you. Enter your location to see who's playing near you. Enter your location to see who's playing near you.</p></div>
+				</div> -->
+				<div class="container">
+					<div class="card mainEvents border-0">
+					<div class="card-body">
+					<div class="row text-center" id="eventResults">
+						<div id="events-div"><p class="h1">Your Search Results Go Here</p></div>
 					</div>
 					</div>
 					</div>
 				</div>
-			</div>
-		</div>
+		
 
 		<div id="yourArtist" class="jumbotron jumbotron-fluid">
 			<div class="row">
@@ -138,10 +186,11 @@
 				<div class="card-body text-center">
 					<p class="h1 yourArtist" style="font-family: 'Lobster', cursive;">y<i class="fas fa-headphones"></i>ur artist</p>
 					<hr class="my-4">
-					<form>
+
+					<form action ="#">
 						<div class="row">
 						<div class="col">
-							<input id="aritst-input" type="text" class="form-control" placeholder="Artist Name">
+							<input id="artist-input" type="text" class="form-control" placeholder="Artist Name">
 						</div>
 						</div>
 						<br>
@@ -158,25 +207,27 @@
 					<div class="card mainArtist">
 					<div class="card-body text-center">
 					<div class="row" id="artistResults">
-						<div id="artist-div"><p class="h1 display-1">Enter aritst's name to see what they are up to. Enter aritst name to see what they are up to. Enter aritst name to see what they are up to.</p></div>
+						<div id="artist-div"><p class="h1 display-1">Enter artist's name to see what they are up to. Enter artist name to see what they are up to. Enter aritst name to see what they are up to.</p></div>
 					</div>
 					</div>
 					</div>
+
 				</div>
 			</div>
 		</div>
 
-	<nav class="navbar navbar-light bg-light text-center">
+	<!-- <nav class="navbar navbar-light bg-light text-center">
 		<div class="container">
 			<p>copyright &copy; 2018 v<i class="fas fa-headphones"></i>caLocal</p>
 		</div>
-	</nav>
+	</nav> -->
 
 		</div>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+		<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="assets/javascript/app.js"></script>
 	</body>
