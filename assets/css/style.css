@@ -81,3 +81,14 @@ h1 {
     overflow: auto;
 }
 
+.card-body {
+    margin: auto;
+}
+.event-div {
+    border: solid 2px #CBA135;
+
+}
+#artistResults {
+    border: solid 3px #CBA135;
+}
+

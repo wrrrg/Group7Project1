@@ -438,17 +438,17 @@ appendEvents = function(eventResults){
     // make the div element
     var eventDiv = $("<div class='event-div'>");
     // Event Name
-    var eventName = $("<span class='name'>").text(name);
+    var eventName = $("<span class='name'>").text(" " + name + " " + " ");
     //  distance to the event
-    var distance = $("<span class='distance'>").text(eventDist);
+    var distance = $("<span class='distance'>").text("Distance " + eventDist);
     // start time (military for now, might change with moment)
-    var start = $("<span class='start'>").text(eventStart);
+    var start = $("<span class='start'>").text(" Start time: " + eventStart + " ");
     // link that opens google maps with directions
     var addressLink = "https://www.google.com/maps/dir/?api=1&origin=" + origin + "&destination=" +  eventResults[i]["lat"] + "%2C" + eventResults[i]["lng"];
 
     // uses the addressLink as the href= and the name of the address as the text
 
-    var address = $("<a class='address'>").text(address).attr("href", addressLink);
+    var address = $("<a class='address'>").text(" " + address + " ").attr("href", addressLink);
 
 
 
