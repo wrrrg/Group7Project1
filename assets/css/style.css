@@ -44,6 +44,8 @@
 #navSearch {
     box-shadow: 0px 0px 10px rgba(0,0,0,.8);
 }
+
+
 /** {
     box-sizing: border-box;
     color: #CBA135;
@@ -131,7 +133,7 @@ h1 {
     overflow: auto;
 }
 
-<<<<<<< HEAD
+
 #artist-div {
     background: none;
     border: none;
@@ -139,7 +141,7 @@ h1 {
 }
 
 */
-=======
+
 .card-body {
     margin: auto;
 }
@@ -150,5 +152,3 @@ h1 {
 #artistResults {
     border: solid 3px #CBA135;
 }
-
->>>>>>> 161170ce76f000b6fd1990ff22938caf533c6422

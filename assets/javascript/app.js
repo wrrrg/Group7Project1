@@ -10,17 +10,14 @@
 // We then want to append these results to the events-div. We do this by putting the appendEvents() function at the end of sortDistance().
 
 // I know this is a super stupid way to do this, but I do not understand callbacks. If anyone can refractor, please please do.
-<<<<<<< HEAD
+
 function openNav() {
     document.getElementById("navSearch").style.height = "39%";
-}
+};
 
 function closeNav() {
     document.getElementById("navSearch").style.height = "0%";
-}
-=======
-
->>>>>>> 161170ce76f000b6fd1990ff22938caf533c6422
+};
 
 
 
@@ -448,29 +445,21 @@ appendEvents = function(eventResults){
     // make the div element
     var eventDiv = $("<div class='event-div'>");
     // Event Name
-<<<<<<< HEAD
-    var eventName = $("<span class='name'>").text(name);
-    //  distance to the event
-    var distance = $("<span class='distance'>").text(eventDist);
-    // start time (military for now, might change with moment)
-    var start = $("<span class='start'>").text(eventStart);
-=======
+
     var eventName = $("<span class='name'>").text(" " + name + " " + " ");
     //  distance to the event
     var distance = $("<span class='distance'>").text("Distance " + eventDist);
     // start time (military for now, might change with moment)
     var start = $("<span class='start'>").text(" Start time: " + eventStart + " ");
->>>>>>> 161170ce76f000b6fd1990ff22938caf533c6422
+
     // link that opens google maps with directions
     var addressLink = "https://www.google.com/maps/dir/?api=1&origin=" + origin + "&destination=" +  eventResults[i]["lat"] + "%2C" + eventResults[i]["lng"];
 
     // uses the addressLink as the href= and the name of the address as the text
 
-<<<<<<< HEAD
-    var address = $("<a class='address'>").text(address).attr("href", addressLink);
-=======
+
     var address = $("<a class='address'>").text(" " + address + " ").attr("href", addressLink);
->>>>>>> 161170ce76f000b6fd1990ff22938caf533c6422
+
 
 
 
