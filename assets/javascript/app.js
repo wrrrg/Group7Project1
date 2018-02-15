@@ -307,7 +307,7 @@ var songkick = {
 
   // find GPS of a city using a search based on "cityname" string. Updates global var gps.
   findCityGps: function(location){
-      var queryURL = "http://api.songkick.com/api/3.0/search/locations.json?query=" + location + "&apikey=" + apiKeySongKick;
+      var queryURL = "https://api.songkick.com/api/3.0/search/locations.json?query=" + location + "&apikey=" + apiKeySongKick;
       // var queryURL = "http://api.songkick.com/api/3.0/search/locations.json?location=clientip&apikey=io09K9l3ebJxmxe2";
 
 
