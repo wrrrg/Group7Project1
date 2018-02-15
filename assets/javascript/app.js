@@ -427,7 +427,7 @@ appendEvents = function(eventResults){
 
     for (var j = 0; j < artistArr.length; j++) {
            var artist = artistArr[j]["displayName"];
-           var artistName = "<span class='artist-listing'><a href='#yourArtist' class='artist-click'>" + " " + artist + " " + "</a></span>";
+           var artistName = "<span class='artist-listing'><a href='#yourArtist' class='artist-click'>" + artist + "</a></span>";
 
            artistList = artistList + artistName
     };
@@ -446,7 +446,7 @@ appendEvents = function(eventResults){
     var eventDiv = $("<div class='event-div'>");
     // Event Name
 
-    var eventName = $("<span class='name'>").html("<br/>"+ " "+ name + " " + " "+"<br/>");
+    var eventName = $("<span class='name'>").text(" " + name + " " + " ");
     //  distance to the event
     var distance = $("<span class='distance'>").text("Distance " + eventDist);
     // start time (military for now, might change with moment)
