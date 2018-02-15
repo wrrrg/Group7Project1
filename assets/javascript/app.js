@@ -366,9 +366,9 @@ var songkick = {
         for (var i = 0; i < eventArr.length; i++) {
           var eventObj = {};
           eventObj.name = eventArr[i]["displayName"];
+          eventObj.startTime = eventArr[i]["start"]["time"];
           eventObj.lat = eventArr[i]["location"]["lat"];
           eventObj.lng = eventArr[i]["location"]["lng"];
-          eventObj.startTime = eventArr[i]["start"]["time"];
           eventObj.date = eventArr[i]["start"]["date"];
           eventObj.uri = eventArr[i]["uri"];
           eventObj.performers = eventArr[i]["performance"];
@@ -438,19 +438,24 @@ appendEvents = function(eventResults){
 
     var name = eventResults[i]["name"],
         link = eventResults[i]["uri"],
-        eventDist = eventResults[i]["distance"]["text"],
         eventStart = eventResults[i]["startTime"],
+        eventDist = eventResults[i]["distance"]["text"],
+        
         address = eventResults[i]["address"];
 
     // make the div element
     var eventDiv = $("<div class='event-div'>");
     // Event Name
 
-    var eventName = $("<span class='name'>").html("<br/>"+ " "+ name + " " + " "+"<br/>");
-    //  distance to the event
-    var distance = $("<span class='distance'>").text("Distance " + eventDist);
+
+    var eventName = $("<span class='name'>").html("<br/>"+ " "+ name + " " + " ");
+
     // start time (military for now, might change with moment)
-    var start = $("<span class='start'>").text(" Start time: " + eventStart + " ");
+    var start = $("<span class='start'>").html(" Start time: " + eventStart + " "+"<br/>");
+
+    //  distance to the event
+    var distance = $("<span class='distance'>").text("Distance " + eventDist+ " ");
+    
 
     // link that opens google maps with directions
     var addressLink = "https://www.google.com/maps/dir/?api=1&origin=" + origin + "&destination=" +  eventResults[i]["lat"] + "%2C" + eventResults[i]["lng"];
@@ -470,8 +475,8 @@ appendEvents = function(eventResults){
 
     // Append paragraph and image to div
     eventDiv.append(eventName);
-    eventDiv.append(distance);
     eventDiv.append(start);
+    eventDiv.append(distance);
     eventDiv.append(songkickLink);
     eventDiv.append(address);
     eventDiv.append(artistList);
