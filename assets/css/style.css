@@ -143,10 +143,17 @@ h1 {
 */
 
 .card-body {
-    margin: auto;
+    margin: center;
 }
-.event-div {
+.event-div:hover {
+    position:relative;
+    width:100%;
+    height:auto;
+    display:block;
+    z-index:999;
     border: solid 2px #CBA135;
+    background: black;
+    
 
 }
 #artistResults {
