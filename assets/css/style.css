@@ -146,6 +146,7 @@ h1 {
     margin: center;
 }
 .event-div:hover {
+    text-align: center;
     position:relative;
     width:100%;
     height:auto;
@@ -158,4 +159,10 @@ h1 {
 }
 #artistResults {
     border: solid 3px #CBA135;
+}
+#eventResults {
+
+    background-size: cover;
+    opacity: .9;
+    background: url(http://static.tumblr.com/7b37633d29d9aaca9828b5132273cdf1/sy59fz4/1linmyvvt/tumblr_static_4y2skv97m24ogs84wc40sccso.jpg);
 }
