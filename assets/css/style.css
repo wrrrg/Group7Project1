@@ -154,9 +154,14 @@ h1 {
     z-index:999;
     border: solid 2px #CBA135;
     background: black;
-    
+
 
 }
+
+#artist-div{
+   margin: auto;
+}
+
 #artistResults {
     border: solid 3px #CBA135;
 }
