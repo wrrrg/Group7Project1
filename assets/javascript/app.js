@@ -28,6 +28,7 @@ $(document).ready(function() {
   $("#use-gps-button").on("click", function(){
       useGPS = true;
       googleMaps.getLocation();
+      
     })
   // use the search field
 
@@ -75,6 +76,7 @@ function searchBandsInTown(artist) {
       var trackerCount = $("<h2>").text(response.tracker_count + " fans tracking this artist");
       var upcomingEvents = $("<h2>").text(response.upcoming_event_count + " upcoming events");
       var goToArtist = $("<a>").attr("href", response.url).text("See Tour Dates");
+      
       // Empty the contents of the artist-div, append the new artist content
       $("#artist-div").empty();
       $("#artist-div").append(artistURL, artistImage, trackerCount, upcomingEvents, goToArtist);
@@ -427,7 +429,7 @@ appendEvents = function(eventResults){
 
     for (var j = 0; j < artistArr.length; j++) {
            var artist = artistArr[j]["displayName"];
-           var artistName = "<span class='artist-listing'><a href='#yourArtist' class='artist-click'>" + " " + artist + " " + "</a></span>";
+           var artistName = "<span class='artist-listing'><a href='#yourArtist' class='artist-click'>" + artist + "</a></span>";
 
            artistList = artistList + artistName
     };
@@ -464,6 +466,8 @@ appendEvents = function(eventResults){
 
 
     var address = $("<a class='address'>").text(" " + address + " ").attr("href", addressLink);
+
+  
 
 
 
