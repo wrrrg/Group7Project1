@@ -28,7 +28,7 @@ $(document).ready(function() {
   $("#use-gps-button").on("click", function(){
       useGPS = true;
       googleMaps.getLocation();
-      
+
     })
   // use the search field
 
@@ -59,7 +59,6 @@ $(document).on("click", '.artist-click', function(){
 
 
 
-
 function searchBandsInTown(artist) {
     // Querying the bandsintown api for the selected artist, the ?app_id parameter is required, but can equal anything
     var queryURL = "https://rest.bandsintown.com/artists/" + artist + "?app_id=codingbootcamp";
@@ -76,7 +75,7 @@ function searchBandsInTown(artist) {
       var trackerCount = $("<h2>").text(response.tracker_count + " fans tracking this artist");
       var upcomingEvents = $("<h2>").text(response.upcoming_event_count + " upcoming events");
       var goToArtist = $("<a>").attr("href", response.url).text("See Tour Dates");
-      
+
       // Empty the contents of the artist-div, append the new artist content
       $("#artist-div").empty();
       $("#artist-div").append(artistURL, artistImage, trackerCount, upcomingEvents, goToArtist);
@@ -429,7 +428,7 @@ appendEvents = function(eventResults){
 
     for (var j = 0; j < artistArr.length; j++) {
            var artist = artistArr[j]["displayName"];
-           var artistName = "<span class='artist-listing'><a href='#yourArtist' class='artist-click'>" + artist + "</a></span>";
+           var artistName = "<span class='artist-listing'><a href='#yourArtist' class='artist-click' >" + artist + "</a></span>";
 
            artistList = artistList + artistName
     };
@@ -442,7 +441,7 @@ appendEvents = function(eventResults){
         link = eventResults[i]["uri"],
         eventStart = eventResults[i]["startTime"],
         eventDist = eventResults[i]["distance"]["text"],
-        
+
         address = eventResults[i]["address"];
 
     // make the div element
@@ -457,7 +456,7 @@ appendEvents = function(eventResults){
 
     //  distance to the event
     var distance = $("<span class='distance'>").text("Distance " + eventDist+ " ");
-    
+
 
     // link that opens google maps with directions
     var addressLink = "https://www.google.com/maps/dir/?api=1&origin=" + origin + "&destination=" +  eventResults[i]["lat"] + "%2C" + eventResults[i]["lng"];
@@ -465,16 +464,18 @@ appendEvents = function(eventResults){
     // uses the addressLink as the href= and the name of the address as the text
 
 
-    var address = $("<a class='address'>").text(" " + address + " ").attr("href", addressLink);
-
-  
-
-
+    var address = $("<a class='address-link'>").text(" " + address + " ").attr({
+      href: addressLink,
+      target: '_blank'
+    });
 
 
 
     // More Details Link (Songkick)
-    var songkickLink = $("<a href=" + link + ">More Details</a>");
+    var songkickLink = $("<a class='more-info-link'>").text("Tickets").attr({
+      href: link,
+      target: '_blank'
+    });
 
 
     // Append paragraph and image to div
