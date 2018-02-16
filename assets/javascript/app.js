@@ -430,7 +430,7 @@ appendEvents = function(eventResults){
            var artist = artistArr[j]["displayName"];
            var artistName = "<span class='artist-listing'><a href='#yourArtist' class='artist-click' >" + artist + "</a></span>";
 
-           artistList = artistList + artistName
+           artistList = artistList + " " + artistName;
     };
 
     console.log(artistList);
