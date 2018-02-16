@@ -4,133 +4,121 @@
     color: #CBA135;
 }
 
-
-#logo {
+/*WELCOME PAGE*/
+#brand {
     margin-bottom: -1px;
-    background: url(https://static.tumblr.com/7b37633d29d9aaca9828b5132273cdf1/sy59fz4/1linmyvvt/tumblr_static_4y2skv97m24ogs84wc40sccso.jpg);
+    text-shadow: 0 0 3px #000, 0 0 5px #FFF;
+    margin-top: -70px;
+    background: url(http://static.tumblr.com/7b37633d29d9aaca9828b5132273cdf1/sy59fz4/1linmyvvt/tumblr_static_4y2skv97m24ogs84wc40sccso.jpg);
+    min-height: 658px;
+    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.sticky-top {
-    background-color: black;
-    box-shadow: 0 8px 6px -6px grey;
+#logo {
+    height: 450px;
+    margin-top: 60px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #CBA135;
+    border-bottom: none;
+    border-radius: 10px;
 }
 
+#icon {
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+
+.display-3 {
+    margin-top: 100px;
+}
+
+ /*STICKY NAVBAR FOR THE TOGGLER BUTTON*/
+#navBar {
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 6px -6px #CBA135;
+}
+/*TOGGLE BUTTON*/
+.toggle {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #CBA135;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+/*TOGGLE-ABLE SEARCHBAR*/
 .overlay {
-    height: 0%;
     width: 100%;
     position: fixed;
     z-index: 1;
     bottom: 0;
     left: 0;
     background-color: rgb(0, 0, 0);
-    /*background-color: rgba(0, 0, 0, 0.9);*/
+    background-color: rgba(0, 0, 0, 0.5);
     overflow-y: hidden;
-    transition: 0.5s;
+    display: none;
+    box-shadow: 0px 0px 10px #CBA135;
 }
 
-@media screen and (max-height: 450px) {
-  .overlay {overflow-y: auto;}
-  .overlay a {font-size: 20px}
-  .overlay .closebtn {
-    font-size: 40px;
-    top: 15px;
-    right: 35px;
-  }
+a {
+    text-decoration: none;
 }
 
-#navSearch {
-    box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   color: white;
+   text-align: center;
 }
 
-
-/** {
-    box-sizing: border-box;
-    color: #CBA135;
+#submit-input, #select-artist {
+    margin-right: 5px;
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 
-body {
-
-    background-size: cover;
-    line-height: 1.5;
-    font-family: 'Raleway', sans-serif;
+#eventResults {
+    min-height: 658px;
+    background: linear-gradient(-45deg, #000, #CCC, #FFF, #CCC, #000);
 }
 
-h1 {
-    font-family: 'Lobster', cursive;
+.card-body {
+    margin: center;
 }
 
-.navbar {
-    background: rgb(255, 255, 255);
-    background: rgba(255, 255, 255, 0.2);
-}
-
-#home {
-    background: url(http://static.tumblr.com/7b37633d29d9aaca9828b5132273cdf1/sy59fz4/1linmyvvt/tumblr_static_4y2skv97m24ogs84wc40sccso.jpg);
-    min-height: 700px;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-bottom: -30px;
-}
-
-#homeBrand {
-    height: 510px;
-    margin-top: 40px;
-    background: rgb(255, 255, 255);
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid #CBA135;
-}
-
-#yourEvents {
-    background-color: black;
-    min-height: 700px;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-bottom: -30px;
-}
-
-.sidebarEvents {
+.event-div:hover {
+    text-align: center;
+    position:relative;
+    width:100%;
+    height:auto;
+    display:block;
+    z-index:999;
+    border: solid 2px #CBA135;
     background: black;
-    border: none;
-}
-
-.mainEvents {
-    background-color: black;
-    border: none;
-    max-height: 600px;
-    overflow: auto;
-}
-
-.name {
-    font-family: 'Lobster', cursive;
-}
-
-#yourArtist {
-    background: url(https://static.tumblr.com/106bc3193f8a144520727778b74cde06/dr5oxct/4Apnuivar/tumblr_static_tumblr_static_2171n0cjqjogggggoco0g8cgw_640.png);
-    min-height: 700px;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-bottom: -30px;
-}
-
-.sidebarArtist {
-    background: none;
-    border: none;
-}
-
-.mainArtist {
-    background: none;
-    border: none;
-    max-height: 600px;
-    overflow: auto;
 }
 
 
@@ -140,7 +128,7 @@ h1 {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-*/
+
 
 .card-body {
     margin: center;

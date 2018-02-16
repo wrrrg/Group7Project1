@@ -11,14 +11,14 @@
 
 // I know this is a super stupid way to do this, but I do not understand callbacks. If anyone can refractor, please please do.
 
-function openNav() {
-    document.getElementById("navSearch").style.height = "39%";
-};
 
-function closeNav() {
-    document.getElementById("navSearch").style.height = "0%";
-};
+function myFunction(x) {
+    x.classList.toggle("change");
+}
 
+$(".toggle").on("click", function() {
+  $("#navSearch").slideToggle({"transition": "0.5"});
+})
 
 
 // event listeners jquery
