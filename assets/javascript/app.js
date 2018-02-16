@@ -97,13 +97,14 @@ function searchBandsInTown(artist) {
     searchBandsInTown(inputArtist);
   });
 
-  $(".artist-click").on("click", function(){
-    var artistQuery = this.text;
-    console.log(artistQuery);
-    $("#artist-input").val(artistQuery);
-
-    searchBandsInTown(artistQuery);
-  });
+  //
+  // $(".artist-click").on("click", function(){
+  //   var artistQuery = this.text;
+  //   console.log(artistQuery);
+  //   $("#artist-input").val(artistQuery);
+  //
+  //   searchBandsInTown(artistQuery);
+  // });
 
 
 // io09K9l3ebJxmxe2 test SongKick API Key
@@ -430,7 +431,9 @@ appendEvents = function(eventResults){
            var artist = artistArr[j]["displayName"];
            var artistName = "<span class='artist-listing'><a href='#yourArtist' class='artist-click' >" + artist + "</a></span>";
 
-           artistList = artistList + artistName
+
+           artistList = artistList + ", " + artistName;
+
     };
 
     console.log(artistList);
