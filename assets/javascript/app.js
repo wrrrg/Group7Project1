@@ -26,7 +26,6 @@ $(".toggle").on("click", function() {
 $(document).ready(function() {
   // ask for GPS permission and use that
   $("#use-gps-button").on("click", function(){
-    $('#eventResults').prepend($('<div id="loading"> <img src="./assets/images/dribbble-songkick.gif" alt="songkick icon"></div>'));
       useGPS = true;
       googleMaps.getLocation();
 
@@ -64,14 +63,9 @@ function searchBandsInTown(artist) {
     // Querying the bandsintown api for the selected artist, the ?app_id parameter is required, but can equal anything
     var queryURL = "https://rest.bandsintown.com/artists/" + artist + "?app_id=codingbootcamp";
     $.ajax({
-      
       url: queryURL,
       method: "GET"
     }).then(function(response) {
-      success:{$("#loading").hide();
-    };
-
-      
       // Printing the entire object to console
       console.log(response);
       // Constructing HTML containing the artist information
@@ -85,7 +79,6 @@ function searchBandsInTown(artist) {
       // Empty the contents of the artist-div, append the new artist content
       $("#artist-div").empty();
       $("#artist-div").append(artistURL, artistImage, trackerCount, upcomingEvents, goToArtist);
-      
     });
   }
   // On input to search of artist, queries possible artists
@@ -358,8 +351,6 @@ var songkick = {
         url: queryURL,
         method: 'GET'
       }).then(function(response) {
-        success:{$("#loading").hide();
-      };
         console.log(response);
         console.log(response["resultsPage"]["results"]["event"]);
 
