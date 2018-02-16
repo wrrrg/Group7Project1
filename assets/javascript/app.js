@@ -28,6 +28,7 @@ $(document).ready(function() {
   $("#use-gps-button").on("click", function(){
       useGPS = true;
       googleMaps.getLocation();
+
     })
   // use the search field
 
@@ -58,7 +59,6 @@ $(document).on("click", '.artist-click', function(){
 
 
 
-
 function searchBandsInTown(artist) {
     // Querying the bandsintown api for the selected artist, the ?app_id parameter is required, but can equal anything
     var queryURL = "https://rest.bandsintown.com/artists/" + artist + "?app_id=codingbootcamp";
@@ -75,6 +75,7 @@ function searchBandsInTown(artist) {
       var trackerCount = $("<h2>").text(response.tracker_count + " fans tracking this artist");
       var upcomingEvents = $("<h2>").text(response.upcoming_event_count + " upcoming events");
       var goToArtist = $("<a>").attr("href", response.url).text("See Tour Dates");
+
       // Empty the contents of the artist-div, append the new artist content
       $("#artist-div").empty();
       $("#artist-div").append(artistURL, artistImage, trackerCount, upcomingEvents, goToArtist);
@@ -307,7 +308,7 @@ var songkick = {
 
   // find GPS of a city using a search based on "cityname" string. Updates global var gps.
   findCityGps: function(location){
-      var queryURL = "http://api.songkick.com/api/3.0/search/locations.json?query=" + location + "&apikey=" + apiKeySongKick;
+      var queryURL = "https://api.songkick.com/api/3.0/search/locations.json?query=" + location + "&apikey=" + apiKeySongKick;
       // var queryURL = "http://api.songkick.com/api/3.0/search/locations.json?location=clientip&apikey=io09K9l3ebJxmxe2";
 
 
@@ -342,7 +343,7 @@ var songkick = {
 
       var gps = "geo:" + location;
       // var queryURL = "http://api.songkick.com/api/3.0/events.json?" + metroId + "/calendar.json?apikey=io09K9l3ebJxmxe2";
-      var queryURL = "http://api.songkick.com/api/3.0/events.json?apikey=" + apiKeySongKick  + "&location=" + gps + "&per_page=15" + "&min_date=" + todaysDate + "&max_date=" + todaysDate;
+      var queryURL = "https://api.songkick.com/api/3.0/events.json?apikey=" + apiKeySongKick  + "&location=" + gps + "&per_page=15" + "&min_date=" + todaysDate + "&max_date=" + todaysDate;
 
       console.log(queryURL);
       $.ajax({
@@ -366,9 +367,9 @@ var songkick = {
         for (var i = 0; i < eventArr.length; i++) {
           var eventObj = {};
           eventObj.name = eventArr[i]["displayName"];
+          eventObj.startTime = eventArr[i]["start"]["time"];
           eventObj.lat = eventArr[i]["location"]["lat"];
           eventObj.lng = eventArr[i]["location"]["lng"];
-          eventObj.startTime = eventArr[i]["start"]["time"];
           eventObj.date = eventArr[i]["start"]["date"];
           eventObj.uri = eventArr[i]["uri"];
           eventObj.performers = eventArr[i]["performance"];
@@ -427,7 +428,7 @@ appendEvents = function(eventResults){
 
     for (var j = 0; j < artistArr.length; j++) {
            var artist = artistArr[j]["displayName"];
-           var artistName = "<span class='artist-listing'><a href='#yourArtist' class='artist-click'>" + artist + "</a></span>";
+           var artistName = "<span class='artist-listing'><a href='#yourArtist' class='artist-click' >" + artist + "</a></span>";
 
            artistList = artistList + artistName
     };
@@ -438,19 +439,24 @@ appendEvents = function(eventResults){
 
     var name = eventResults[i]["name"],
         link = eventResults[i]["uri"],
-        eventDist = eventResults[i]["distance"]["text"],
         eventStart = eventResults[i]["startTime"],
+        eventDist = eventResults[i]["distance"]["text"],
+
         address = eventResults[i]["address"];
 
     // make the div element
     var eventDiv = $("<div class='event-div'>");
     // Event Name
 
-    var eventName = $("<span class='name'>").text(" " + name + " " + " ");
-    //  distance to the event
-    var distance = $("<span class='distance'>").text("Distance " + eventDist);
+
+    var eventName = $("<span class='name'>").html("<br/>"+ " "+ name + " " + " ");
+
     // start time (military for now, might change with moment)
-    var start = $("<span class='start'>").text(" Start time: " + eventStart + " ");
+    var start = $("<span class='start'>").html(" Start time: " + eventStart + " "+"<br/>");
+
+    //  distance to the event
+    var distance = $("<span class='distance'>").text("Distance " + eventDist+ " ");
+
 
     // link that opens google maps with directions
     var addressLink = "https://www.google.com/maps/dir/?api=1&origin=" + origin + "&destination=" +  eventResults[i]["lat"] + "%2C" + eventResults[i]["lng"];
@@ -458,20 +464,24 @@ appendEvents = function(eventResults){
     // uses the addressLink as the href= and the name of the address as the text
 
 
-    var address = $("<a class='address'>").text(" " + address + " ").attr("href", addressLink);
-
-
+    var address = $("<a class='address-link'>").text(" " + address + " ").attr({
+      href: addressLink,
+      target: '_blank'
+    });
 
 
 
     // More Details Link (Songkick)
-    var songkickLink = $("<a href=" + link + ">More Details</a>");
+    var songkickLink = $("<a class='more-info-link'>").text("Tickets").attr({
+      href: link,
+      target: '_blank'
+    });
 
 
     // Append paragraph and image to div
     eventDiv.append(eventName);
-    eventDiv.append(distance);
     eventDiv.append(start);
+    eventDiv.append(distance);
     eventDiv.append(songkickLink);
     eventDiv.append(address);
     eventDiv.append(artistList);
