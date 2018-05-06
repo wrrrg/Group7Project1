@@ -1,166 +1,173 @@
 * {
-    box-sizing: border-box;
-    font-family: 'Raleway', sans-serif;
-    color: #CBA135;
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+  color: #cba135;
+}
+
+body {
+  background-color: #000000;
+  background: url(http://static.tumblr.com/7b37633d29d9aaca9828b5132273cdf1/sy59fz4/1linmyvvt/tumblr_static_4y2skv97m24ogs84wc40sccso.jpg);
+  background-size: 100% 100%;
 }
 
 /*WELCOME PAGE*/
 #brand {
-    margin-bottom: -1px;
-    text-shadow: 0 0 3px #000, 0 0 5px #FFF;
-    margin-top: -70px;
-    background: url(http://static.tumblr.com/7b37633d29d9aaca9828b5132273cdf1/sy59fz4/1linmyvvt/tumblr_static_4y2skv97m24ogs84wc40sccso.jpg);
-    min-height: 658px;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  margin-bottom: -1px;
+  text-shadow: 0 0 3px #000, 0 0 5px #fff;
+  margin-top: -70px;
+  background-color: transparent !important;
+  min-height: 658px;
+  /* background-attachment: fixed; */
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
 }
 
 #logo {
-    height: 450px;
-    margin-top: 60px;
-    background: rgb(0, 0, 0);
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid #CBA135;
-    border-bottom: none;
-    border-radius: 10px;
+  height: 450px;
+  margin-top: 60px;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid #cba135;
+  border-bottom: none;
+  border-radius: 10px;
 }
 
 #icon {
-    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+  text-shadow: 0 0 3px #ff0000, 0 0 5px #0000ff;
 }
 
 .display-3 {
-    margin-top: 100px;
+  margin-top: 100px;
 }
 
- /*STICKY NAVBAR FOR THE TOGGLER BUTTON*/
+/*STICKY NAVBAR FOR THE TOGGLER BUTTON*/
 #navBar {
-    background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.5);
-    box-shadow: 0 8px 6px -6px #CBA135;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 6px -6px #cba135;
 }
 /*TOGGLE BUTTON*/
 .toggle {
-    display: inline-block;
-    cursor: pointer;
+  display: inline-block;
+  cursor: pointer;
 }
 
-.bar1, .bar2, .bar3 {
-    width: 35px;
-    height: 5px;
-    background-color: #CBA135;
-    margin: 6px 0;
-    transition: 0.4s;
+.bar1,
+.bar2,
+.bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #cba135;
+  margin: 6px 0;
+  transition: 0.4s;
 }
 
 .change .bar1 {
-    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-    transform: rotate(-45deg) translate(-9px, 6px);
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
 }
 
-.change .bar2 {opacity: 0;}
+.change .bar2 {
+  opacity: 0;
+}
 
 .change .bar3 {
-    -webkit-transform: rotate(45deg) translate(-8px, -8px);
-    transform: rotate(45deg) translate(-8px, -8px);
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
 }
 
 /*TOGGLE-ABLE SEARCHBAR*/
 .overlay {
-    width: 100%;
-    position: fixed;
-    z-index: 1;
-    bottom: 0;
-    left: 0;
-    background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.5);
-    overflow-y: hidden;
-    display: none;
-    box-shadow: 0px 0px 10px #CBA135;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow-y: hidden;
+  display: none;
+  box-shadow: 0px 0px 10px #cba135;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .footer {
-   position: fixed;
-   left: 0;
-   bottom: 0;
-   width: 100%;
-   color: white;
-   text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
 }
 
-#submit-input, #select-artist {
-    margin-right: 5px;
-    position: absolute;
-    right: 0;
-    top: 0;
+#submit-input,
+#select-artist {
+  margin-right: 5px;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 #eventResults {
-    min-height: 658px;
-    background: linear-gradient(-45deg, #000, #CCC, #FFF, #CCC, #000);
+  min-height: 658px;
+  /* background: linear-gradient(-45deg, #000, #CCC, #FFF, #CCC, #000); */
+  border: none;
+  background: rgba(0, 0, 0, 0.9);
 }
 
 .card-body {
-    margin: center;
+  margin: center;
 }
 
 .event-div:hover {
-    text-align: center;
-    position:relative;
-    width:100%;
-    height:auto;
-    display:block;
-    z-index:999;
-    border: solid 2px #CBA135;
-    background: black;
+  text-align: center;
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: block;
+  z-index: 999;
+  border: solid 2px #cba135;
+  background: black;
 }
-
 
 #artist-div {
-    background: none;
-    border: none;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /*  last minute*/
+  background: #111111;
+  /* background: none; */
+  border: none;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  width: 100%;
+  margin: auto;
 }
-
-
 
 .card-body {
-    margin: center;
+  margin: center;
 }
 .event-div:hover {
-    text-align: center;
-    position:relative;
-    width:100%;
-    height:auto;
-    display:block;
-    z-index:999;
-    border: solid 2px #CBA135;
-    background: black;
-
-
-}
-
-#artist-div{
-   margin: auto;
+  text-align: center;
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: block;
+  z-index: 999;
+  border: solid 2px #cba135;
+  background: black;
 }
 
 #artistResults {
-    border: solid 3px #CBA135;
+  border: solid 3px #cba135;
 }
 #eventResults {
-    height: 70px;
-    background-size: cover;
-    opacity: .9;
-    background: url(https://static.tumblr.com/7b37633d29d9aaca9828b5132273cdf1/sy59fz4/1linmyvvt/tumblr_static_4y2skv97m24ogs84wc40sccso.jpg);
+  height: 70px;
+  /* background-size: cover; */
+  opacity: 0.7;
+  /* background: url(https://static.tumblr.com/7b37633d29d9aaca9828b5132273cdf1/sy59fz4/1linmyvvt/tumblr_static_4y2skv97m24ogs84wc40sccso.jpg); */
 }
 
-#artist-div{
-    margin: auto;
+#artist-div {
+  background: #333333;
+  margin: auto;
 }
-
