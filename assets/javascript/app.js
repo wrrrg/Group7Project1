@@ -9,7 +9,14 @@
 
 // We then want to append these results to the events-div. We do this by putting the appendEvents() function at the end of sortDistance().
 
-// I know this is a super stupid way to do this, but I do not understand callbacks. If anyone can refractor, please please do.
+// rip not being able to pay for a private account and having to display keys publicly
+var keys = {
+  songkick: "io09K9l3ebJxmxe2",
+  geolocate: "AIzaSyCMYSEdplA8YCDESSjE-KxOji84lQjKNTU",
+  directions: "AIzaSyCnd-IWrCKGW-QzK2iM3opYUL7Z_0gaR3A",
+  matrix: "AIzaSyC4VTDL8HDsd-eNs_89_lBzicvSKZAaWa0",
+  geocode: "AIzaSyBmoewIZls4DAoeu04S_WZ8r0dJ8bgTDek"
+};
 
 function myFunction(x) {
   x.classList.toggle("change");
