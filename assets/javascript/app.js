@@ -1,5 +1,3 @@
-const keys = require("./keys.js");
-
 //  Dear Everyone Reading this - this is super busted right now, but it works. Basically the following functions have to happen in order for a sorted list of events based on the user's location to populate correctly
 
 // 1) the user's location must be determined, either via location permissions or the address they enter in the location search.
