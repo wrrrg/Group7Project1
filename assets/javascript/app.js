@@ -1,4 +1,4 @@
-//  Dear Everyone Reading this - this is super busted right now, but it works. Basically the following functions have to happen in order for a sorted list of events based on the user's location to populate correctly
+// Basically the following functions have to happen in order for a sorted list of events based on the user's location to populate correctly
 
 // 1) the user's location must be determined, either via location permissions or the address they enter in the location search.
 // either of these functions (googleMaps.getLocation() or googleMaps.searchAddress()  ) will then use songkick.findEvents to track down the events on today's date near that area, capping it at 15 events. To do this, both the getLocation and the searchAddress functions will call songkick.findEvents at the end of their functions.
@@ -9,7 +9,7 @@
 
 // We then want to append these results to the events-div. We do this by putting the appendEvents() function at the end of sortDistance().
 
-// rip not being able to pay for a private account and having to display keys publicly
+// Unfortunately due to limitations of this style of project, we have no way of really securing these API keys - fortunately none are sensitive, and all are free.
 var keys = {
   songkick: "io09K9l3ebJxmxe2",
   geolocate: "AIzaSyCMYSEdplA8YCDESSjE-KxOji84lQjKNTU",
